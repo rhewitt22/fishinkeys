@@ -1,0 +1,20 @@
+{{ define "main" }}
+<section style="padding: 120px 0 60px; background-color: var(--color-primary); color: #fff;">
+  <div class="container" style="text-align: center;">
+    <h1 class="text-display-lg" style="color: #fff;">{{ .Title }}</h1>
+  </div>
+</section>
+
+<section style="padding: var(--section-gap) 0;">
+  <div class="container">
+    <div class="card-grid">
+      {{ range .Pages }}
+        <div class="trip-card" style="padding: 2rem;">
+          <h3 class="text-headline-sm"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p class="text-body-md" style="margin-top: 0.5rem; color: var(--color-on-surface-variant);">{{ .Summary }}</p>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

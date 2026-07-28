@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://localhost:1313/fishinkeys/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/fishinkeys/reviews/</loc>
+  </url><url>
+    <loc>http://localhost:1313/fishinkeys/</loc>
+  </url><url>
+    <loc>http://localhost:1313/fishinkeys/tags/</loc>
+  </url><url>
+    <loc>http://localhost:1313/fishinkeys/boat/</loc>
+  </url><url>
+    <loc>http://localhost:1313/fishinkeys/captain/</loc>
+  </url><url>
+    <loc>http://localhost:1313/fishinkeys/trips/</loc>
+  </url>
+</urlset>

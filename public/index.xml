@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Fish in Keys | Key West Fishing Charters</title>
+		<link>http://localhost:1313/fishinkeys/</link>
+		<description>Recent content on Fish in Keys | Key West Fishing Charters</description>
+		<generator>Hugo</generator>
+		<language>en-US</language>
+		
+		
+		
+		
+			<atom:link href="http://localhost:1313/fishinkeys/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>The Boat</title>
+				<link>http://localhost:1313/fishinkeys/boat/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/fishinkeys/boat/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>The Captain</title>
+				<link>http://localhost:1313/fishinkeys/captain/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/fishinkeys/captain/</guid>
+				<description></description>
+			</item>
+	</channel>
+</rss>

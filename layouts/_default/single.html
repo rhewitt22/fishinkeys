@@ -1,0 +1,15 @@
+{{ define "main" }}
+<section style="padding: 120px 0 60px; background-color: var(--color-primary); color: #fff;">
+  <div class="container" style="text-align: center;">
+    <h1 class="text-display-lg" style="color: #fff;">{{ .Title }}</h1>
+  </div>
+</section>
+
+<section style="padding: var(--section-gap) 0;">
+  <div class="container" style="max-width: 800px;">
+    <div class="content-body" style="font-size: 1.1rem; line-height: 1.8;">
+      {{ .Content }}
+    </div>
+  </div>
+</section>
+{{ end }}

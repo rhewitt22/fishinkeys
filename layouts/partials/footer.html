@@ -1,0 +1,46 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Fish in Keys</div>
+        <p class="footer-subtext">
+          © {{ now.Format "2006" }} Fish in Keys Charters. Captain-led expertise in Key West. Professional fishing adventures for anglers of all skill levels.
+        </p>
+        <div style="display: flex; gap: 1rem;">
+          <span class="material-symbols-outlined" style="cursor: pointer;">sailing</span>
+          <span class="material-symbols-outlined" style="cursor: pointer;">anchor</span>
+          <span class="material-symbols-outlined" style="cursor: pointer;">photo_camera</span>
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-nav">
+          <li><a href="{{ "" | relURL }}">Home</a></li>
+          {{ range .Site.Menus.main }}
+            <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+          {{ end }}
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-title">Location & Contact</h4>
+        <p class="footer-subtext" style="line-height: 1.8;">
+          <strong>Ocean's Edge Marina</strong><br>
+          Key West, FL 33040<br>
+          {{ .Site.Params.hours }}
+        </p>
+        <div style="margin-top: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; color: var(--color-secondary-fixed);">
+          <span class="material-symbols-outlined">call</span>
+          {{ .Site.Params.phone }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      Designed for high-end hospitality in the Florida Keys. Built with Hugo.
+    </div>
+  </div>
+</footer>

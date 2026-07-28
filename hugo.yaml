@@ -1,0 +1,32 @@
+baseURL: "https://rhewitt.github.io/fishinkeys/"
+locale: "en-US"
+title: "Fish in Keys | Key West Fishing Charters"
+
+params:
+  description: "Premier Key West fishing charters led by expert captains. World-class offshore gamefishing and reef adventures in the Florida Keys."
+  phone: "(305) 555-0123"
+  email: "info@fishinkeys.com"
+  location: "Ocean's Edge Marina, Key West, FL 33040"
+  hours: "Daily: 6:00 AM - 8:00 PM"
+  established: "2024"
+  vessel: "36' Custom Center-Console • 900HP"
+
+menu:
+  main:
+    - name: "Trips & Rates"
+      url: "/trips/"
+      weight: 10
+    - name: "Reviews"
+      url: "/reviews/"
+      weight: 20
+    - name: "The Captain"
+      url: "/captain/"
+      weight: 30
+    - name: "The Boat"
+      url: "/boat/"
+      weight: 40
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
