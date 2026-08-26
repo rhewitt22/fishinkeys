@@ -1,5 +1,5 @@
 ---
 title: "Customer Reviews"
-description: "Read real 5-star customer reviews and fishing reports from Fish in Keys charter guests in Key West."
+description: "Read real 5-star customer reviews and fishing reports from Key West Fishing Connection charter guests in Key West."
 layout: "list"
 ---
