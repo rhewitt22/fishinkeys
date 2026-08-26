@@ -1,19 +1,13 @@
 ---
 title: "The Captain"
-description: "USCG 100-Ton Master Captain with over 20 years of charter fishing experience in Key West."
+description: "Captain with over two decades of fishing experience."
 hero_badge: "CAPTAIN PROFILE"
 headline: "Meet Capt. Dan Zier"
 image: "images/captain-portrait.jpg"
-image_alt: "Captain Mike"
+image_alt: "Capt. Dan Zier"
 stats:
-  - title: "USCG Licensed"
-    desc: "100-Ton Master Captain"
   - title: "20+ Years"
     desc: "Local Key West Chartering"
-  - title: "First Aid / CPR"
-    desc: "Certified Safety Leader"
-  - title: "Tournament Winner"
-    desc: "Multiple Sailfish & Wahoo Titles"
 type: "captain"
 layout: "single"
 ---
@@ -30,6 +24,7 @@ Dan specializes in the powerful gamefish and predators that live in the waters s
 And when Capt. Dan says &quot;big fish,&quot; he means it.
 
 ## More Than 20 Years on the Water
+
 Capt. Dan has spent roughly 24 years developing the experience that goes into every Key West Fishing Connection charter.
 
 Over that time, he&#39;s learned that successful fishing in the Florida Keys isn&#39;t simply a matter of driving to a waypoint and dropping a bait.
