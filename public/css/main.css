@@ -538,3 +538,32 @@ footer.site-footer {
     display: block;
   }
 }
+
+/* Content Body Styles (Markdown prose) */
+.content-body {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--color-on-surface-variant);
+}
+
+.content-body p {
+  margin-bottom: 1.5rem;
+}
+
+.content-body p:last-child {
+  margin-bottom: 0;
+}
+
+.content-body strong {
+  color: var(--color-on-surface);
+  font-weight: 700;
+}
+
+.content-body ul, .content-body ol {
+  margin: 1rem 0 1.5rem 1.5rem;
+}
+
+.content-body li {
+  margin-bottom: 0.5rem;
+}
+
