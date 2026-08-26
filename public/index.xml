@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Key West Fishing Connection | Key West Fishing Charters</title>
-		<link>http://localhost:1313/fishinkeys/</link>
+		<link>https://rhewitt22.github.io/fishinkeys/</link>
 		<description>Recent content on Key West Fishing Connection | Key West Fishing Charters</description>
 		<generator>Hugo</generator>
 		<language>en-US</language>
@@ -10,19 +10,19 @@
 		
 		
 		
-			<atom:link href="http://localhost:1313/fishinkeys/index.xml" rel="self" type="application/rss+xml" />
+			<atom:link href="https://rhewitt22.github.io/fishinkeys/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>The Boat &amp; Vessel Specs</title>
-				<link>http://localhost:1313/fishinkeys/boat/</link>
+				<link>https://rhewitt22.github.io/fishinkeys/boat/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/fishinkeys/boat/</guid>
+				<guid>https://rhewitt22.github.io/fishinkeys/boat/</guid>
 				<description>&lt;p&gt;Our 36-foot custom center console was purpose-built for the challenging waters of the Florida Keys and Gulf Stream. With a wide beam, high gunwales, and heavy deep-V hull, it cuts smoothly through sea chop while keeping guests dry and stable.&lt;/p&gt;&#xA;&lt;p&gt;Equipped with triple 300HP Yamaha V6 engines, we cruise at 40 knots—getting you to the fishing grounds faster so you spend more time fishing and less time riding.&lt;/p&gt;</description>
 			</item>
 			<item>
 				<title>The Captain</title>
-				<link>http://localhost:1313/fishinkeys/captain/</link>
+				<link>https://rhewitt22.github.io/fishinkeys/captain/</link>
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/fishinkeys/captain/</guid>
+				<guid>https://rhewitt22.github.io/fishinkeys/captain/</guid>
 				<description>&lt;h2 id=&#34;a-key-west-fishing-captain-who-knows-where-the-big-fish-live&#34;&gt;A Key West Fishing Captain Who Knows Where the Big Fish Live&lt;/h2&gt;&#xA;&lt;p&gt;For Capt. Dan Zier, fishing the waters around Key West isn&#39;t just about putting another fish in the boat. It&#39;s about giving people the chance to experience the kind of fishing that makes the Florida Keys special—big fish, shallow water, screaming drags and stories they&#39;ll still be telling years later.&lt;/p&gt;&#xA;&lt;p&gt;With more than two decades of fishing experience, Capt. Dan has built Key West Fishing&#xA;Connection around a simple idea: &lt;strong&gt;Spend less time riding around and more time fishing.&lt;/strong&gt;&lt;/p&gt;</description>
 			</item>
 	</channel>
