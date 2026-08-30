@@ -3,13 +3,19 @@ locale: "en-US"
 title: "Key West Fishing Connection | Key West Fishing Charters"
 
 params:
+  brand_name: "Key West Fishing Connection"
   description: "Premier Key West fishing charters led by expert captains. World-class offshore gamefishing and reef adventures in the Florida Keys."
   phone: "(305) 555-0123"
+  booking_phone: "tel:3055550123"
   email: "info@fishinkeys.com"
+  location_name: "Ocean's Edge Marina"
+  location_address: "Key West, FL 33040"
   location: "Ocean's Edge Marina, Key West, FL 33040"
   hours: "Daily: 6:00 AM - 8:00 PM"
   established: "2024"
   vessel: "36' Custom Center-Console • 900HP"
+  footer_about: "Captain-led expertise in Key West. Professional fishing adventures for anglers of all skill levels."
+  footer_tagline: "Designed for high-end hospitality in the Florida Keys. Built with Hugo."
 
 menu:
   main:

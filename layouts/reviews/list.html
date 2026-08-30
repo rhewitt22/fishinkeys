@@ -2,113 +2,68 @@
 <!-- Page Header Banner -->
 <section style="background-color: var(--color-primary); color: #ffffff; padding: 120px 0 60px; margin-top: 80px;">
   <div class="container" style="text-align: center;">
-    <span class="hero-badge" style="background-color: var(--color-secondary-container); color: var(--color-primary);">GUEST TESTIMONIALS</span>
-    <h1 class="text-display-lg" style="color: #ffffff; margin-top: 1rem;">Customer Reviews</h1>
-    <p class="text-body-lg" style="color: var(--color-primary-fixed-dim); max-width: 600px; margin: 1rem auto 0;">
-      Read real stories and catch reports from anglers, families, and groups who fished with Captain Mike.
-    </p>
+    {{ with .Params.hero_badge }}<span class="hero-badge" style="background-color: var(--color-secondary-container); color: var(--color-primary);">{{ . }}</span>{{ end }}
+    <h1 class="text-display-lg" style="color: #ffffff; margin-top: 1rem;">{{ default .Title .Params.headline }}</h1>
+    {{ with .Params.subtitle }}
+      <p class="text-body-lg" style="color: var(--color-primary-fixed-dim); max-width: 600px; margin: 1rem auto 0;">
+        {{ . }}
+      </p>
+    {{ end }}
   </div>
 </section>
 
 <!-- Review Stats Overview -->
+{{ with .Params.stats }}
 <section style="padding: 3rem 0; background-color: var(--color-surface-container-low); border-bottom: 1px solid var(--color-outline-variant);">
   <div class="container">
     <div style="display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap; text-align: center;">
       <div>
-        <div class="text-display-lg" style="color: var(--color-primary); font-size: 3.5rem;">5.0</div>
-        <div style="color: var(--color-tertiary); font-size: 1.25rem;">★★★★★</div>
-        <p class="text-label-bold" style="color: var(--color-on-surface-variant); margin-top: 0.25rem;">200+ VERIFIED 5-STAR REVIEWS</p>
+        {{ with .average_rating }}<div class="text-display-lg" style="color: var(--color-primary); font-size: 3.5rem;">{{ . }}</div>{{ end }}
+        {{ with .rating_stars }}<div style="color: var(--color-tertiary); font-size: 1.25rem;">{{ . }}</div>{{ end }}
+        {{ with .review_count_label }}<p class="text-label-bold" style="color: var(--color-on-surface-variant); margin-top: 0.25rem;">{{ . }}</p>{{ end }}
       </div>
 
+      {{ with .platforms }}
       <div style="height: 60px; width: 1px; background-color: var(--color-outline-variant);" class="hidden-mobile"></div>
 
       <div>
-        <div style="font-weight: 700; font-size: 1.2rem; color: var(--color-primary);">Featured On</div>
+        <div style="font-weight: 700; font-size: 1.2rem; color: var(--color-primary);">{{ default "Featured On" $.Params.stats.featured_label }}</div>
         <div style="display: flex; gap: 1.5rem; margin-top: 0.5rem; color: var(--color-secondary); font-weight: 700;">
-          <span>Google Reviews</span> • <span>TripAdvisor</span> • <span>FishingBooker</span>
+          {{ range $i, $p := . }}{{ if gt $i 0 }} • {{ end }}<span>{{ $p }}</span>{{ end }}
         </div>
       </div>
+      {{ end }}
     </div>
   </div>
 </section>
+{{ end }}
 
 <!-- Reviews Grid -->
 <section style="padding: var(--section-gap) 0;">
   <div class="container">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
-      
-      <!-- Review 1 -->
+      {{ range .Pages.ByWeight }}
       <div class="review-card">
         <div>
-          <div class="star-rating">★★★★★</div>
-          <h3 class="text-headline-sm" style="margin-bottom: 0.75rem;">"Best Charter in Key West hands down!"</h3>
+          <div class="star-rating">{{ default "★★★★★" .Params.rating }}</div>
+          <h3 class="text-headline-sm" style="margin-bottom: 0.75rem;">{{ .Title }}</h3>
           <p class="text-body-md" style="color: var(--color-on-surface-variant); margin-bottom: 1.5rem;">
-            Capt. Mike had us on Mahi-Mahi within 45 minutes of leaving the marina. His boat is immaculate, fast, and comfortable. We put 12 fish in the box and had a blast. Will definitely book again next year!
+            {{ .Content | plainify }}
           </p>
         </div>
         <div style="border-top: 1px solid var(--color-outline-variant); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
           <div>
-            <div style="font-weight: 700; color: var(--color-primary);">Mark & Sarah T.</div>
-            <div style="font-size: 0.8rem; color: var(--color-on-surface-variant);">Offshore Full Day • Atlanta, GA</div>
+            <div style="font-weight: 700; color: var(--color-primary);">{{ .Params.author }}</div>
+            <div style="font-size: 0.8rem; color: var(--color-on-surface-variant);">
+              {{ with .Params.trip_type }}{{ . }}{{ end }}{{ if and .Params.trip_type .Params.location }} • {{ end }}{{ with .Params.location }}{{ . }}{{ end }}
+            </div>
           </div>
-          <span class="text-label-bold" style="font-size: 0.75rem; color: var(--color-secondary);">TripAdvisor</span>
+          {{ with .Params.source }}
+          <span class="text-label-bold" style="font-size: 0.75rem; color: var(--color-secondary);">{{ . }}</span>
+          {{ end }}
         </div>
       </div>
-
-      <!-- Review 2 -->
-      <div class="review-card">
-        <div>
-          <div class="star-rating">★★★★★</div>
-          <h3 class="text-headline-sm" style="margin-bottom: 0.75rem;">"Fantastic Family Fishing Day!"</h3>
-          <p class="text-body-md" style="color: var(--color-on-surface-variant); margin-bottom: 1.5rem;">
-            Took my 10 and 13 year old sons on the Reef Half Day trip. Capt. Mike was patient, taught them how to hook their own fish, and made sure rod tips were constantly bending. The kids caught yellowtails till their arms were tired!
-          </p>
-        </div>
-        <div style="border-top: 1px solid var(--color-outline-variant); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
-          <div>
-            <div style="font-weight: 700; color: var(--color-primary);">Jason M.</div>
-            <div style="font-size: 0.8rem; color: var(--color-on-surface-variant);">Reef Half Day • Chicago, IL</div>
-          </div>
-          <span class="text-label-bold" style="font-size: 0.75rem; color: var(--color-secondary);">Google Review</span>
-        </div>
-      </div>
-
-      <!-- Review 3 -->
-      <div class="review-card">
-        <div>
-          <div class="star-rating">★★★★★</div>
-          <h3 class="text-headline-sm" style="margin-bottom: 0.75rem;">"Bucket List Sailfish Caught!"</h3>
-          <p class="text-body-md" style="color: var(--color-on-surface-variant); margin-bottom: 1.5rem;">
-            I've fished all over Florida, but Captain Mike's local knowledge of the Gulf Stream currents is unmatched. We hooked a 7-foot Sailfish on live bait right at the edge of the blue water. Pure adrenaline!
-          </p>
-        </div>
-        <div style="border-top: 1px solid var(--color-outline-variant); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
-          <div>
-            <div style="font-weight: 700; color: var(--color-primary);">Robert L.</div>
-            <div style="font-size: 0.8rem; color: var(--color-on-surface-variant);">Offshore Full Day • Tampa, FL</div>
-          </div>
-          <span class="text-label-bold" style="font-size: 0.75rem; color: var(--color-secondary);">FishingBooker</span>
-        </div>
-      </div>
-
-      <!-- Review 4 -->
-      <div class="review-card">
-        <div>
-          <div class="star-rating">★★★★★</div>
-          <h3 class="text-headline-sm" style="margin-bottom: 0.75rem;">"Dry Tortugas Epic Catch"</h3>
-          <p class="text-body-md" style="color: var(--color-on-surface-variant); margin-bottom: 1.5rem;">
-            The 10-hour Dry Tortugas trip was worth every penny. Huge Mutton Snappers, Grouper, and non-stop rod bending. The boat rides super smooth even in chop. Best day on the ocean ever!
-          </p>
-        </div>
-        <div style="border-top: 1px solid var(--color-outline-variant); padding-top: 1rem; display: flex; justify-content: space-between; align-items: center;">
-          <div>
-            <div style="font-weight: 700; color: var(--color-primary);">Greg K.</div>
-            <div style="font-size: 0.8rem; color: var(--color-on-surface-variant);">Tortugas Expedition • Dallas, TX</div>
-          </div>
-          <span class="text-label-bold" style="font-size: 0.75rem; color: var(--color-secondary);">Google Review</span>
-        </div>
-      </div>
-
+      {{ end }}
     </div>
   </div>
 </section>

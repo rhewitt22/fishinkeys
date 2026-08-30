@@ -2,7 +2,7 @@
   <div class="container">
     <div class="header-inner">
       <a href="{{ "" | relURL }}" class="brand-logo">
-        Key West Fishing Connection
+        {{ default .Site.Title .Site.Params.brand_name }}
       </a>
 
       <nav>
@@ -18,7 +18,7 @@
         </ul>
       </nav>
 
-      <a href="tel:3055550123" class="btn btn-primary">
+      <a href="{{ default "tel:3055550123" .Site.Params.booking_phone | safeURL }}" class="btn btn-primary">
         Book Now
       </a>
     </div>

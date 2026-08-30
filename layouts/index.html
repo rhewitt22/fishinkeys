@@ -1,182 +1,198 @@
 {{ define "main" }}
 <!-- Hero Section -->
-<section class="hero-section" style="background-image: url('{{ "images/hero-boat.jpg" | relURL }}');">
+<section class="hero-section" style="background-image: url('{{ default "images/hero-boat.jpg" .Params.hero.background_image | relURL }}');">
   <div class="hero-overlay"></div>
   <div class="container">
     <div class="hero-content">
-      <span class="hero-badge">EST. {{ .Site.Params.established }} • KEY WEST, FL</span>
+      {{ with .Params.hero.badge }}<span class="hero-badge">{{ . }}</span>{{ end }}
       <h1 class="text-display-lg hero-title">
-        Experience the Best of Key West Fishing
+        {{ default .Title .Params.hero.title }}
       </h1>
+      {{ with .Params.hero.subtitle }}
       <p class="hero-subtitle">
-        Join Captain-led excursions for world-class offshore adventures and reef explorations in the pristine Florida Keys.
+        {{ . }}
       </p>
+      {{ end }}
       <div class="hero-actions">
-        <a href="{{ "trips/" | relURL }}" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.25rem;">
-          Book Your Trip
+        {{ with .Params.hero.primary_button }}
+        <a href="{{ if hasPrefix .url "tel:" }}{{ .url | safeURL }}{{ else }}{{ .url | relURL }}{{ end }}" class="btn btn-primary" style="font-size: 1.1rem; padding: 1rem 2.25rem;">
+          {{ .text }}
         </a>
-        <a href="{{ "trips/" | relURL }}" class="btn btn-glass" style="font-size: 1.1rem; padding: 1rem 2.25rem;">
-          View Rates
+        {{ end }}
+        {{ with .Params.hero.secondary_button }}
+        <a href="{{ if hasPrefix .url "tel:" }}{{ .url | safeURL }}{{ else }}{{ .url | relURL }}{{ end }}" class="btn btn-glass" style="font-size: 1.1rem; padding: 1rem 2.25rem;">
+          {{ .text }}
         </a>
+        {{ end }}
       </div>
     </div>
   </div>
 </section>
 
 <!-- Why Choose Us: Bento Grid -->
+{{ with .Params.bento_section }}
 <section style="padding: var(--section-gap) 0;">
   <div class="container">
     <div class="section-header">
-      <h2 class="text-headline-md">Why Choose Key West Fishing Connection</h2>
+      <h2 class="text-headline-md">{{ .title }}</h2>
       <div class="nautical-divider"></div>
     </div>
 
     <div class="bento-grid">
-      <!-- Card 1: Expertise -->
-      <div class="bento-card bento-col-8">
-        <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: center;">
-          <div style="flex: 1; min-width: 280px;">
-            <span class="material-symbols-outlined" style="font-size: 3rem; color: var(--color-secondary); margin-bottom: 1rem;">anchor</span>
-            <h3 class="text-headline-sm" style="margin-bottom: 1rem;">Captain-Led Expertise</h3>
-            <p class="text-body-md" style="color: var(--color-on-surface-variant);">
-              Our captains aren't just boat operators; they are lifelong anglers with decades of tournament wins and thousands of successful charters. We don't just find fish; we share the art of the catch.
+      {{ range .cards }}
+        {{ $cardTheme := default "light" .theme }}
+        {{ $themeClass := "" }}
+        {{ if eq $cardTheme "dark" }}
+          {{ $themeClass = "bento-dark" }}
+        {{ else if eq $cardTheme "teal" }}
+          {{ $themeClass = "bento-teal" }}
+        {{ end }}
+
+        {{ if .background_image }}
+          <!-- Action / Background Image Card -->
+          <div class="bento-card bento-col-{{ default 8 .col_span }} {{ $themeClass }}" style="position: relative; overflow: hidden; background-image: url('{{ .background_image | relURL }}'); background-size: cover; background-position: center;">
+            <div style="position: absolute; inset: 0; background: rgba(0, 23, 54, 0.65);"></div>
+            <div style="position: relative; z-index: 5;">
+              {{ with .tag }}<span class="text-label-bold" style="background: rgba(255,255,255,0.2); padding: 0.4rem 1rem; border-radius: 4px; color: #fff;">{{ . }}</span>{{ end }}
+              <h3 class="text-headline-md" style="margin-top: 1.5rem; color: #fff;">{{ .title }}</h3>
+              <p class="text-body-lg" style="margin-top: 0.75rem; color: var(--color-primary-fixed-dim);">{{ .description }}</p>
+            </div>
+          </div>
+        {{ else if .image }}
+          <!-- Side-by-side Card with Image -->
+          <div class="bento-card bento-col-{{ default 8 .col_span }} {{ $themeClass }}">
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap; align-items: center;">
+              <div style="flex: 1; min-width: 280px;">
+                {{ with .icon }}<span class="material-symbols-outlined" style="font-size: 3rem; color: var(--color-secondary); margin-bottom: 1rem;">{{ . }}</span>{{ end }}
+                <h3 class="text-headline-sm" style="margin-bottom: 1rem;">{{ .title }}</h3>
+                <p class="text-body-md" style="color: var(--color-on-surface-variant);">
+                  {{ .description }}
+                </p>
+              </div>
+              <div style="width: 220px; height: 220px; border-radius: var(--border-radius-lg); overflow: hidden; flex-shrink: 0;">
+                <img src="{{ .image | relURL }}" alt="{{ default .title .image_alt }}" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+            </div>
+          </div>
+        {{ else }}
+          <!-- Standard Bento Card -->
+          <div class="bento-card bento-col-{{ default 4 .col_span }} {{ $themeClass }}">
+            {{ with .icon }}
+              <span class="material-symbols-outlined" style="font-size: 3rem; {{ if eq $cardTheme "dark" }}color: var(--color-secondary-fixed);{{ end }} margin-bottom: 1rem;">{{ . }}</span>
+            {{ end }}
+            <h3 class="text-headline-sm" style="margin-bottom: 1rem; {{ if eq $cardTheme "teal" }}color: var(--color-primary);{{ end }}">{{ .title }}</h3>
+            <p class="text-body-md" style="{{ if eq $cardTheme "dark" }}color: var(--color-primary-fixed-dim);{{ else if eq $cardTheme "teal" }}color: var(--color-primary);{{ else }}color: var(--color-on-surface-variant);{{ end }}">
+              {{ .description }}
             </p>
+            {{ with .specs }}
+            <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--color-primary-container);" class="text-label-bold">
+              {{ . }}
+            </div>
+            {{ end }}
           </div>
-          <div style="width: 220px; height: 220px; border-radius: var(--border-radius-lg); overflow: hidden; flex-shrink: 0;">
-            <img src="{{ "images/captain-portrait.jpg" | relURL }}" alt="Key West Captain" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 2: Fleet Specs -->
-      <div class="bento-card bento-col-4 bento-dark">
-        <span class="material-symbols-outlined" style="font-size: 3rem; color: var(--color-secondary-fixed); margin-bottom: 1rem;">sailing</span>
-        <h3 class="text-headline-sm" style="margin-bottom: 1rem;">Top-Tier Fleet</h3>
-        <p class="text-body-md" style="color: var(--color-primary-fixed-dim);">
-          Experience the comfort of our 36' custom center-console, equipped with the latest Garmin sonar and triple Yamaha outboards.
-        </p>
-        <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--color-primary-container);" class="text-label-bold">
-          SPECS: 900HP • 6 PASSENGERS
-        </div>
-      </div>
-
-      <!-- Card 3: Local Knowledge -->
-      <div class="bento-card bento-col-4 bento-teal">
-        <span class="material-symbols-outlined" style="font-size: 3rem; margin-bottom: 1rem;">map</span>
-        <h3 class="text-headline-sm" style="margin-bottom: 1rem; color: var(--color-primary);">Local Knowledge</h3>
-        <p class="text-body-md" style="color: var(--color-primary);">
-          We know the secret honey holes from the Marquesas to the Dry Tortugas. Our local routes ensure you're always where the bite is hottest.
-        </p>
-      </div>
-
-      <!-- Card 4: Action Banner -->
-      <div class="bento-card bento-col-8 bento-dark" style="position: relative; overflow: hidden; background-image: url('{{ "images/hero-boat.jpg" | relURL }}'); background-size: cover; background-position: center;">
-        <div style="position: absolute; inset: 0; background: rgba(0, 23, 54, 0.65);"></div>
-        <div style="position: relative; z-index: 5;">
-          <span class="text-label-bold" style="background: rgba(255,255,255,0.2); padding: 0.4rem 1rem; border-radius: 4px; color: #fff;">TROPHY REELING • KEY WEST</span>
-          <h3 class="text-headline-md" style="margin-top: 1.5rem; color: #fff;">World-Class Offshore & Reef Excursions</h3>
-          <p class="text-body-lg" style="margin-top: 0.75rem; color: var(--color-primary-fixed-dim);">Targeting Mahi-Mahi, Tuna, Wahoo, Sailfish, Snapper, and Grouper in pristine waters.</p>
-        </div>
-      </div>
+        {{ end }}
+      {{ end }}
     </div>
   </div>
 </section>
+{{ end }}
 
 <!-- Featured Trips Section -->
+{{ $featuredTrips := where (where .Site.RegularPages "Section" "trips") ".Params.featured" true }}
+{{ if gt (len $featuredTrips) 0 }}
 <section style="padding: var(--section-gap) 0; background-color: var(--color-surface-container);">
   <div class="container">
     <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem;">
       <div>
-        <span class="text-label-bold" style="color: var(--color-secondary);">Our Offerings</span>
-        <h2 class="text-headline-md" style="margin-top: 0.5rem;">Featured Fishing Charters</h2>
+        {{ with .Params.trips_section.eyebrow }}<span class="text-label-bold" style="color: var(--color-secondary);">{{ . }}</span>{{ end }}
+        <h2 class="text-headline-md" style="margin-top: 0.5rem;">{{ default "Featured Fishing Charters" .Params.trips_section.title }}</h2>
       </div>
-      <a href="{{ "trips/" | relURL }}" class="text-label-bold" style="color: var(--color-primary); border-bottom: 2px solid var(--color-primary);">
-        View All Packages →
+      <a href="{{ default "/trips/" .Params.trips_section.link_url | relURL }}" class="text-label-bold" style="color: var(--color-primary); border-bottom: 2px solid var(--color-primary);">
+        {{ default "View All Packages →" .Params.trips_section.link_text }}
       </a>
     </div>
 
     <div class="card-grid">
-      <!-- Half Day -->
+      {{ range $featuredTrips }}
       <div class="trip-card">
         <div style="position: relative;">
-          <img src="{{ "images/hero-boat.jpg" | relURL }}" alt="Reef & Wreck Charter" class="trip-card-image">
-          <div class="trip-price-badge">$850+</div>
+          <img src="{{ default "images/hero-boat.jpg" .Params.image | relURL }}" alt="{{ default .Title .Params.image_alt }}" class="trip-card-image">
+          {{ with .Params.price }}
+            <div class="trip-price-badge">{{ . }}+</div>
+          {{ end }}
         </div>
         <div class="trip-card-body">
-          <h3 class="text-headline-sm" style="margin-bottom: 0.5rem;">Reef & Wreck Half Day</h3>
+          <h3 class="text-headline-sm" style="margin-bottom: 0.5rem;">{{ .Title }}</h3>
           <p class="text-body-md" style="color: var(--color-on-surface-variant);">
-            4 Hours of action-packed fishing perfect for families and casual anglers targeting Yellowtail Snapper, Mutton, and Grouper.
+            {{ .Content | plainify }}
           </p>
           <div class="trip-meta">
+            {{ with .Params.duration }}
             <span style="display: flex; align-items: center; gap: 0.35rem;">
-              <span class="material-symbols-outlined" style="font-size: 1.2rem;">schedule</span> 4 HOURS
+              <span class="material-symbols-outlined" style="font-size: 1.2rem;">schedule</span> {{ . }}
             </span>
+            {{ end }}
+            {{ with .Params.guests }}
             <span style="display: flex; align-items: center; gap: 0.35rem;">
-              <span class="material-symbols-outlined" style="font-size: 1.2rem;">group</span> UP TO 6 GUESTS
+              <span class="material-symbols-outlined" style="font-size: 1.2rem;">group</span> {{ . }}
             </span>
+            {{ end }}
           </div>
           <a href="{{ "trips/" | relURL }}" class="btn btn-outline" style="width: 100%; margin-top: auto;">Select Trip</a>
         </div>
       </div>
-
-      <!-- Full Day -->
-      <div class="trip-card">
-        <div style="position: relative;">
-          <img src="{{ "images/hero-boat.jpg" | relURL }}" alt="Offshore Full Day" class="trip-card-image">
-          <div class="trip-price-badge">$1,600+</div>
-        </div>
-        <div class="trip-card-body">
-          <h3 class="text-headline-sm" style="margin-bottom: 0.5rem;">Offshore Gulf Stream Full Day</h3>
-          <p class="text-body-md" style="color: var(--color-on-surface-variant);">
-            8 Hours chasing big game: Mahi-Mahi, Tuna, Wahoo, and Sailfish in the deep blue waters of the Gulf Stream.
-          </p>
-          <div class="trip-meta">
-            <span style="display: flex; align-items: center; gap: 0.35rem;">
-              <span class="material-symbols-outlined" style="font-size: 1.2rem;">schedule</span> 8 HOURS
-            </span>
-            <span style="display: flex; align-items: center; gap: 0.35rem;">
-              <span class="material-symbols-outlined" style="font-size: 1.2rem;">group</span> UP TO 6 GUESTS
-            </span>
-          </div>
-          <a href="{{ "trips/" | relURL }}" class="btn btn-outline" style="width: 100%; margin-top: auto;">Select Trip</a>
-        </div>
-      </div>
+      {{ end }}
     </div>
   </div>
 </section>
+{{ end }}
 
 <!-- Testimonial Banner -->
+{{ with .Params.testimonial }}
 <section style="padding: var(--section-gap) 0; background-color: var(--color-primary); color: #ffffff; text-align: center;">
   <div class="container" style="max-width: 800px;">
     <span class="material-symbols-outlined" style="font-size: 4rem; color: var(--color-secondary-fixed); margin-bottom: 1rem;">format_quote</span>
     <blockquote class="text-headline-md" style="color: #ffffff; font-style: italic; font-weight: 400; line-height: 1.5; margin-bottom: 2rem;">
-      "Unbelievable day on the water. Capt. Mike knows these waters like the back of his hand. We caught our limit of snapper by noon and then hooked into a massive sailfish. A trip my kids will never forget!"
+      "{{ .quote }}"
     </blockquote>
+    {{ with .stars }}
     <div style="color: var(--color-tertiary); font-size: 1.25rem; margin-bottom: 0.75rem;">
-      ★★★★★
+      {{ . }}
     </div>
-    <div class="text-label-bold" style="color: var(--color-primary-fixed-dim);">DAVID R. • TRIPADVISOR VERIFIED REVIEW</div>
+    {{ end }}
+    {{ with .author }}
+    <div class="text-label-bold" style="color: var(--color-primary-fixed-dim);">{{ . }}</div>
+    {{ end }}
   </div>
 </section>
+{{ end }}
 
 <!-- Final CTA Section -->
+{{ with .Params.cta_section }}
 <section style="padding: var(--section-gap) 0;">
   <div class="container">
     <div style="background-color: var(--color-surface-container-highest); border-radius: var(--border-radius-xl); padding: 4rem 3rem; border: 1px solid var(--color-outline-variant); display: flex; gap: 3rem; align-items: center; flex-wrap: wrap;">
       <div style="flex: 1; min-width: 300px;">
-        <h2 class="text-display-lg" style="font-size: 2.25rem; margin-bottom: 1rem;">Ready to cast your line in paradise?</h2>
+        <h2 class="text-display-lg" style="font-size: 2.25rem; margin-bottom: 1rem;">{{ .title }}</h2>
         <p class="text-body-lg" style="color: var(--color-on-surface-variant); margin-bottom: 2rem;">
-          Spaces fill up fast during peak season. Book today to lock in your preferred date for an unforgettable Key West charter experience.
+          {{ .description }}
         </p>
         <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-          <a href="tel:3055550123" class="btn btn-primary">Book Now</a>
-          <a href="{{ "trips/" | relURL }}" class="btn btn-outline">Explore Trips</a>
+          {{ with .primary_button }}
+          <a href="{{ if hasPrefix .url "tel:" }}{{ .url | safeURL }}{{ else }}{{ .url | relURL }}{{ end }}" class="btn btn-primary">{{ .text }}</a>
+          {{ end }}
+          {{ with .secondary_button }}
+          <a href="{{ if hasPrefix .url "tel:" }}{{ .url | safeURL }}{{ else }}{{ .url | relURL }}{{ end }}" class="btn btn-outline">{{ .text }}</a>
+          {{ end }}
         </div>
       </div>
+      {{ with .image }}
       <div style="width: 380px; height: 260px; border-radius: var(--border-radius-lg); overflow: hidden; flex-shrink: 0;">
-        <img src="{{ "images/hero-boat.jpg" | relURL }}" alt="Key West Charter Sunset" style="width: 100%; height: 100%; object-fit: cover;">
+        <img src="{{ . | relURL }}" alt="{{ default $.Params.cta_section.title $.Params.cta_section.image_alt }}" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
+      {{ end }}
     </div>
   </div>
 </section>
+{{ end }}
 {{ end }}

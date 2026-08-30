@@ -2,9 +2,9 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">Key West Fishing Connection</div>
+        <div class="footer-brand">{{ default .Site.Title .Site.Params.brand_name }}</div>
         <p class="footer-subtext">
-          © {{ now.Format "2006" }} Key West Fishing Connection. Captain-led expertise in Key West. Professional fishing adventures for anglers of all skill levels.
+          © {{ now.Format "2006" }} {{ default .Site.Title .Site.Params.brand_name }}. {{ with .Site.Params.footer_about }}{{ . }}{{ else }}Captain-led expertise in Key West. Professional fishing adventures for anglers of all skill levels.{{ end }}
         </p>
         <div style="display: flex; gap: 1rem;">
           <span class="material-symbols-outlined" style="cursor: pointer;">sailing</span>
@@ -26,21 +26,23 @@
       <div>
         <h4 class="footer-title">Location & Contact</h4>
         <p class="footer-subtext" style="line-height: 1.8;">
-          <strong>Ocean's Edge Marina</strong><br>
-          Key West, FL 33040<br>
+          {{ with .Site.Params.location_name }}<strong>{{ . }}</strong><br>{{ end }}
+          {{ with .Site.Params.location_address }}{{ . }}<br>{{ end }}
           {{ .Site.Params.hours }}
         </p>
+        {{ with .Site.Params.phone }}
         <div style="margin-top: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.5rem; color: var(--color-secondary-fixed);">
           <span class="material-symbols-outlined">call</span>
-          {{ .Site.Params.phone }}
+          <a href="{{ default "tel:3055550123" $.Site.Params.booking_phone | safeURL }}" style="color: inherit; text-decoration: none;">{{ . }}</a>
         </div>
+        {{ end }}
       </div>
     </div>
   </div>
 
   <div class="footer-bottom">
     <div class="container">
-      Designed for high-end hospitality in the Florida Keys. Built with Hugo.
+      {{ with .Site.Params.footer_tagline }}{{ . }}{{ else }}Designed for high-end hospitality in the Florida Keys. Built with Hugo.{{ end }}
     </div>
   </div>
 </footer>
