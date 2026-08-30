@@ -19,24 +19,43 @@ params:
 
 menu:
   main:
-    - name: "Trips & Rates"
+    - identifier: "charters"
+      name: "Charters"
       url: "/trips/"
       weight: 10
+    - name: "Trips & Rates"
+      url: "/trips/"
+      parent: "charters"
+      weight: 1
     - name: "What We Catch"
       url: "/species/"
-      weight: 15
-    - name: "Reviews"
-      url: "/reviews/"
+      parent: "charters"
+      weight: 2
+
+    - identifier: "about"
+      name: "About"
+      url: "/captain/"
       weight: 20
-    - name: "FAQ"
-      url: "/faq/"
-      weight: 25
     - name: "The Captain"
       url: "/captain/"
-      weight: 30
+      parent: "about"
+      weight: 1
     - name: "The Boat"
       url: "/boat/"
-      weight: 40
+      parent: "about"
+      weight: 2
+    - name: "Reviews"
+      url: "/reviews/"
+      parent: "about"
+      weight: 3
+    - name: "FAQ"
+      url: "/faq/"
+      parent: "about"
+      weight: 4
+
+    - name: "Contact"
+      url: "/contact/"
+      weight: 30
 
 markup:
   goldmark:

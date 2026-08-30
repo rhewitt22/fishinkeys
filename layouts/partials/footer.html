@@ -18,7 +18,13 @@
         <ul class="footer-nav">
           <li><a href="{{ "" | relURL }}">Home</a></li>
           {{ range .Site.Menus.main }}
-            <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+            {{ if .HasChildren }}
+              {{ range .Children }}
+                <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+              {{ end }}
+            {{ else if not .Parent }}
+              <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
+            {{ end }}
           {{ end }}
         </ul>
       </div>

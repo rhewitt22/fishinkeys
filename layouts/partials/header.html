@@ -5,22 +5,77 @@
         {{ default .Site.Title .Site.Params.brand_name }}
       </a>
 
-      <nav>
+      <nav class="nav-container" id="site-nav">
         <ul class="nav-links">
           {{ $currentPage := . }}
           {{ range .Site.Menus.main }}
-            <li>
-              <a href="{{ .URL | relURL }}" class="nav-link {{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
-                {{ .Name }}
-              </a>
-            </li>
+            {{ if .HasChildren }}
+              <li class="nav-item has-dropdown">
+                <a href="{{ .URL | relURL }}" class="nav-link dropdown-toggle {{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}active{{ end }}">
+                  <span>{{ .Name }}</span>
+                  <span class="material-symbols-outlined dropdown-caret">expand_more</span>
+                </a>
+                <ul class="dropdown-menu">
+                  {{ range .Children }}
+                    <li>
+                      <a href="{{ .URL | relURL }}" class="dropdown-link {{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+                        {{ .Name }}
+                      </a>
+                    </li>
+                  {{ end }}
+                </ul>
+              </li>
+            {{ else if not .Parent }}
+              <li class="nav-item">
+                <a href="{{ .URL | relURL }}" class="nav-link {{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+                  {{ .Name }}
+                </a>
+              </li>
+            {{ end }}
           {{ end }}
         </ul>
       </nav>
 
-      <a href="{{ default "tel:3055550123" .Site.Params.booking_phone | safeURL }}" class="btn btn-primary">
-        Book Now
-      </a>
+      <div class="header-actions">
+        <a href="{{ default "tel:3055550123" .Site.Params.booking_phone | safeURL }}" class="btn btn-primary btn-header-cta">
+          Book Now
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="material-symbols-outlined" id="mobile-toggle-icon">menu</span>
+        </button>
+      </div>
     </div>
   </div>
 </header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggle = document.getElementById('mobile-toggle');
+    const nav = document.getElementById('site-nav');
+    const icon = document.getElementById('mobile-toggle-icon');
+    
+    if (toggle && nav) {
+      toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', !expanded);
+        nav.classList.toggle('open');
+        if (icon) {
+          icon.textContent = nav.classList.contains('open') ? 'close' : 'menu';
+        }
+      });
+    }
+
+    // Handle mobile dropdown toggling
+    const dropdownToggles = document.querySelectorAll('.has-dropdown > .dropdown-toggle');
+    dropdownToggles.forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        if (window.innerWidth <= 860) {
+          e.preventDefault();
+          const parent = this.closest('.has-dropdown');
+          parent.classList.toggle('dropdown-open');
+        }
+      });
+    });
+  });
+</script>

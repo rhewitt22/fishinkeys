@@ -1,0 +1,120 @@
+{{ define "main" }}
+<!-- Page Header Banner -->
+<section style="background-color: var(--color-primary); color: #ffffff; padding: 120px 0 60px; margin-top: 80px;">
+  <div class="container" style="text-align: center;">
+    {{ with .Params.hero_badge }}<span class="hero-badge" style="background-color: var(--color-secondary-container); color: var(--color-primary);">{{ . }}</span>{{ end }}
+    <h1 class="text-display-lg" style="color: #ffffff; margin-top: 1rem;">{{ default .Title .Params.headline }}</h1>
+    {{ with .Params.subtitle }}
+      <p class="text-body-lg" style="color: var(--color-primary-fixed-dim); max-width: 640px; margin: 1rem auto 0;">
+        {{ . }}
+      </p>
+    {{ end }}
+  </div>
+</section>
+
+<!-- Contact & Booking Section -->
+<section style="padding: var(--section-gap) 0;">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; align-items: flex-start;">
+      
+      <!-- Left Column: Story & Trip Types -->
+      <div>
+        {{ with .Params.section_eyebrow }}<span class="text-label-bold" style="color: var(--color-secondary);">{{ . }}</span>{{ end }}
+        <h2 class="text-headline-md" style="margin: 0.5rem 0 1.5rem; color: var(--color-primary);">{{ default "Your Key West Fishing Adventure Starts Here" .Params.section_title }}</h2>
+        
+        <div class="content-body text-body-lg" style="color: var(--color-on-surface-variant); margin-bottom: 2rem;">
+          {{ .Content }}
+        </div>
+
+        {{ with .Params.trip_scenarios }}
+        <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+          {{ range . }}
+          <div style="background: #ffffff; padding: 1rem 1.25rem; border-radius: var(--border-radius-lg); border: 1px solid var(--color-outline-variant); display: flex; align-items: flex-start; gap: 0.75rem; box-shadow: 0 2px 6px rgba(0,23,54,0.02);">
+            <span class="material-symbols-outlined" style="color: var(--color-tertiary); font-size: 1.4rem; flex-shrink: 0; margin-top: 0.15rem;">check_circle</span>
+            <span class="text-body-md" style="color: var(--color-on-surface); font-weight: 500;">{{ . }}</span>
+          </div>
+          {{ end }}
+        </div>
+        {{ end }}
+
+        {{ with .Params.closing_note }}
+        <div style="background-color: var(--color-surface-container-low); padding: 1.25rem 1.5rem; border-left: 4px solid var(--color-secondary); border-radius: var(--border-radius); font-weight: 600; color: var(--color-primary); margin-top: 1.5rem;">
+          {{ . }}
+        </div>
+        {{ end }}
+      </div>
+
+      <!-- Right Column: Direct Contact & Info Card -->
+      <div>
+        <div style="background: #ffffff; border-radius: var(--border-radius-xl); border: 1px solid var(--color-outline-variant); padding: 2.5rem; box-shadow: 0 10px 30px rgba(0,23,54,0.06);">
+          <h3 class="text-headline-sm" style="color: var(--color-primary); margin-bottom: 1.5rem;">Contact Capt. Dan</h3>
+
+          <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 2.5rem;">
+            
+            <!-- Direct Phone Call Button -->
+            <a href="{{ default "tel:3055550123" .Site.Params.booking_phone | safeURL }}" class="btn btn-primary" style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; font-size: 1.1rem; padding: 1.1rem;">
+              <span class="material-symbols-outlined">call</span>
+              <span>Call / Text: {{ default "(305) 555-0123" .Site.Params.phone }}</span>
+            </a>
+
+            <!-- Direct Email Link -->
+            {{ with .Site.Params.email }}
+            <a href="mailto:{{ . }}" class="btn btn-outline" style="display: flex; align-items: center; justify-content: center; gap: 0.75rem; font-size: 1rem; padding: 0.9rem;">
+              <span class="material-symbols-outlined">mail</span>
+              <span>Email: {{ . }}</span>
+            </a>
+            {{ end }}
+
+          </div>
+
+          <div class="nautical-divider" style="margin-bottom: 2rem;"></div>
+
+          <!-- Quick Details -->
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--color-surface-container); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <span class="material-symbols-outlined" style="color: var(--color-secondary);">location_on</span>
+              </div>
+              <div>
+                <div class="text-label-bold" style="color: var(--color-primary);">Departure Location</div>
+                <div class="text-body-md" style="color: var(--color-on-surface-variant); margin-top: 0.2rem;">
+                  {{ with .Site.Params.location_name }}<strong>{{ . }}</strong><br>{{ end }}
+                  {{ default "Key West & Stock Island, FL" .Site.Params.location_address }}
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--color-surface-container); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <span class="material-symbols-outlined" style="color: var(--color-secondary);">group</span>
+              </div>
+              <div>
+                <div class="text-label-bold" style="color: var(--color-primary);">Charter Capacity</div>
+                <div class="text-body-md" style="color: var(--color-on-surface-variant); margin-top: 0.2rem;">
+                  Up to 4 Anglers (Private Charters)
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--color-surface-container); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                <span class="material-symbols-outlined" style="color: var(--color-secondary);">schedule</span>
+              </div>
+              <div>
+                <div class="text-label-bold" style="color: var(--color-primary);">Availability & Hours</div>
+                <div class="text-body-md" style="color: var(--color-on-surface-variant); margin-top: 0.2rem;">
+                  {{ default "Daily: 6:00 AM - 8:00 PM" .Site.Params.hours }}
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{{ end }}
