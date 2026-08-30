@@ -1,0 +1,104 @@
+{{ define "main" }}
+<!-- Page Header Banner -->
+<section style="background-color: var(--color-primary); color: #ffffff; padding: 120px 0 60px; margin-top: 80px;">
+  <div class="container" style="text-align: center;">
+    {{ with .Params.hero_badge }}<span class="hero-badge" style="background-color: var(--color-secondary-container); color: var(--color-primary);">{{ . }}</span>{{ end }}
+    <h1 class="text-display-lg" style="color: #ffffff; margin-top: 1rem;">{{ default .Title .Params.headline }}</h1>
+    {{ with .Params.subtitle }}
+      <p class="text-body-lg" style="color: var(--color-primary-fixed-dim); max-width: 640px; margin: 1rem auto 0;">
+        {{ . }}
+      </p>
+    {{ end }}
+  </div>
+</section>
+
+<!-- Content Intro (if any) -->
+{{ if .Content }}
+<section style="padding: 40px 0 0;">
+  <div class="container" style="max-width: 800px; text-align: center;">
+    <div class="content-body text-body-lg" style="color: var(--color-on-surface-variant);">
+      {{ .Content }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- FAQ List Section -->
+<section style="padding: var(--section-gap) 0;">
+  <div class="container" style="max-width: 860px;">
+    {{ with .Params.faq_items }}
+    <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+      {{ range . }}
+      <details class="faq-item" style="background: #ffffff; border: 1px solid var(--color-outline-variant); border-radius: var(--border-radius-lg); padding: 1.25rem 1.5rem; box-shadow: 0 2px 8px rgba(0,23,54,0.03); transition: border-color var(--transition-fast);">
+        <summary style="font-family: var(--font-headline); font-weight: 700; font-size: 1.15rem; color: var(--color-primary); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; user-select: none;">
+          <span>{{ .question }}</span>
+          <span class="material-symbols-outlined faq-icon" style="color: var(--color-secondary); font-size: 1.5rem; transition: transform var(--transition-fast);">expand_more</span>
+        </summary>
+        <div class="faq-answer text-body-md" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--color-outline-variant); color: var(--color-on-surface-variant); line-height: 1.65;">
+          {{ .answer }}
+        </div>
+      </details>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<!-- FAQ Schema JSON-LD for SEO -->
+{{ with .Params.faq_items }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {{ $len := len . }}
+    {{ range $index, $element := . }}
+    {
+      "@type": "Question",
+      "name": {{ $element.question | jsonify }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ $element.answer | jsonify }}
+      }
+    }{{ if lt (add $index 1) $len }},{{ end }}
+    {{ end }}
+  ]
+}
+</script>
+{{ end }}
+
+<!-- Quick Question CTA -->
+{{ with .Params.cta }}
+<section style="padding: 0 0 var(--section-gap);">
+  <div class="container" style="max-width: 860px;">
+    <div style="background-color: var(--color-surface-container-highest); border-radius: var(--border-radius-xl); padding: 3rem 2rem; border: 1px solid var(--color-outline-variant); text-align: center;">
+      <h2 class="text-headline-md" style="margin-bottom: 0.75rem;">{{ .title }}</h2>
+      <p class="text-body-md" style="color: var(--color-on-surface-variant); max-width: 600px; margin: 0 auto 1.75rem;">
+        {{ .description }}
+      </p>
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        {{ with .primary_button }}
+        <a href="{{ if hasPrefix .url "tel:" }}{{ .url | safeURL }}{{ else }}{{ .url | relURL }}{{ end }}" class="btn btn-primary">{{ .text }}</a>
+        {{ end }}
+        {{ with .secondary_button }}
+        <a href="{{ if hasPrefix .url "tel:" }}{{ .url | safeURL }}{{ else }}{{ .url | relURL }}{{ end }}" class="btn btn-outline">{{ .text }}</a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<style>
+  details.faq-item[open] .faq-icon {
+    transform: rotate(180deg);
+  }
+  details.faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  details.faq-item[open] {
+    border-color: var(--color-secondary);
+  }
+</style>
+
+{{ end }}
