@@ -28,6 +28,9 @@ menu:
     - name: "Reviews"
       url: "/reviews/"
       weight: 20
+    - name: "FAQ"
+      url: "/faq/"
+      weight: 25
     - name: "The Captain"
       url: "/captain/"
       weight: 30
