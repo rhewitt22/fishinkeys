@@ -55,11 +55,11 @@ trips_section:
   link_text: "View All Packages →"
   link_url: "/trips/"
 
-# --- TESTIMONIAL BANNER (Optional fallback if not pulled from reviews) ---
+# --- TESTIMONIAL BANNER ---
 testimonial:
-  quote: "Unbelievable day on the water. Capt. Mike knows these waters like the back of his hand. We caught our limit of snapper by noon and then hooked into a massive sailfish. A trip my kids will never forget!"
+  quote: "Capt. Dan knows where to find fish. We caught a massive bull shark and multiple lemon sharks. Unbelievable action and an unforgettable day on the water!"
   stars: "★★★★★"
-  author: "DAVID R. • TRIPADVISOR VERIFIED REVIEW"
+  author: "VERIFIED GUEST REVIEW • FISHINGBOOKER"
 
 # --- FINAL CTA BANNER ---
 cta_section:
