@@ -13,7 +13,7 @@ stats:
   - title: "Charter"
     desc: "Key West Fishing Connection"
   - title: "Location"
-    desc: "Key West \/ Stock Island, Florida"
+    desc: "Key West / Stock Island, Florida"
   - title: "Boat"
     desc: "22' Lake & Bay Back Bay"
   - title: "Guests"
