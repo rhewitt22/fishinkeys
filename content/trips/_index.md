@@ -1,6 +1,6 @@
 ---
-title: "Trips & Rates"
-description: "Explore our Key West fishing charter packages and rates. Half day, 3/4 day, full day offshore, and Dry Tortugas expeditions."
+title: "Key West Fishing Trips & Charters | Shark, Grouper & Tarpon"
+description: "Explore Key West shark fishing, Goliath grouper, tarpon, snapper and family fishing trips with Capt. Dan Zier. Private charters for up to four anglers."
 layout: "list"
 hero_badge: "CHARTER RATES & PACKAGES"
 headline: "Key West Fishing Charter Trips"

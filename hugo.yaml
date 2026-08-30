@@ -1,10 +1,10 @@
 baseURL: "https://rhewitt22.github.io/fishinkeys/"
 locale: "en-US"
-title: "Key West Fishing Connection | Key West Fishing Charters"
+title: "Key West Fishing Charters | Key West Fishing Connection"
 
 params:
   brand_name: "Key West Fishing Connection"
-  description: "Premier Key West fishing charters led by expert captains. World-class offshore gamefishing and reef adventures in the Florida Keys."
+  description: "Fish Key West with Capt. Dan Zier. Private shark fishing, Goliath grouper, tarpon and family fishing charters aboard a 22' Lake & Bay."
   phone: "(305) 555-0123"
   booking_phone: "tel:3055550123"
   email: "info@fishinkeys.com"
@@ -13,7 +13,7 @@ params:
   location: "Ocean's Edge Marina, Key West, FL 33040"
   hours: "Daily: 6:00 AM - 8:00 PM"
   established: "2024"
-  vessel: "36' Custom Center-Console • 900HP"
+  vessel: "22' Lake & Bay Back Bay"
   footer_about: "Captain-led expertise in Key West. Professional fishing adventures for anglers of all skill levels."
   footer_tagline: "Designed for high-end hospitality in the Florida Keys. Built with Hugo."
 

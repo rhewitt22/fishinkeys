@@ -1,6 +1,6 @@
 ---
-title: "Key West Fishing Connection | Key West Fishing Charters"
-description: "Experience world-class Key West fishing charters led by expert captains. Reef, wreck, and offshore fishing excursions."
+title: "Key West Fishing Charters | Key West Fishing Connection"
+description: "Fish Key West with Capt. Dan Zier. Private shark fishing, Goliath grouper, tarpon and family fishing charters aboard a 22' Lake & Bay."
 type: "home"
 
 # --- HERO SECTION ---

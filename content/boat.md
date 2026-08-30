@@ -1,9 +1,9 @@
 ---
-title: "The 22' Lake & Bay"
-description: "Maneuvers easily around a hard-running shark, positioning over structure for a Goliath grouper, and provides the versatility needed for Capt. Dan’s style of fishing."
+title: "Our 22' Lake & Bay | Key West Fishing Connection"
+description: "Fish Key West aboard Capt. Dan's 22-foot Lake & Bay, a versatile fishing boat built for shark, tarpon, grouper and inshore fishing."
 hero_badge: "THE FLEET"
-eyebrow: "DESIGNED FOR COMFORT & MANUVERABILITY"
-headline: Built for Key West Fishing"
+eyebrow: "DESIGNED FOR COMFORT & MANEUVERABILITY"
+headline: "Built for Key West Fishing"
 image: "images/hero-boat.jpg"
 image_alt: "36 Custom Charter Vessel"
 specs:

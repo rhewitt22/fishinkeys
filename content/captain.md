@@ -1,6 +1,6 @@
 ---
-title: "The Captain"
-description: "Captain with over two decades of fishing experience."
+title: "Capt. Dan Zier | Key West Fishing Guide"
+description: "Meet Capt. Dan Zier of Key West Fishing Connection, a Key West fishing captain with more than two decades of experience targeting sharks, grouper, tarpon and snapper."
 hero_badge: "CAPTAIN PROFILE"
 headline: "Meet Capt. Dan Zier"
 image: "images/captain-portrait.jpg"

@@ -1,6 +1,6 @@
 ---
-title: "What Anglers Say About Capt. Dan"
-description: "Key West Fishing Connection carries a 5.0-star rating on FishingBooker with hundreds of reviews from anglers who have fished with Capt. Dan Zier."
+title: "Key West Fishing Connection Reviews | Capt. Dan Zier"
+description: "Read reviews from anglers who fished Key West with Capt. Dan Zier for sharks, Goliath grouper, tarpon, snapper and more."
 layout: "list"
 hero_badge: "GUEST REVIEWS"
 headline: "What Anglers Say About Capt. Dan"

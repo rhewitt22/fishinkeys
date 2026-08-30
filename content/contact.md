@@ -1,6 +1,6 @@
 ---
-title: "Book Your Charter"
-description: "Ready to go fishing in Key West? Contact Capt. Dan Zier to customize your shark, Goliath grouper, tarpon, or family fishing adventure."
+title: "Book a Key West Fishing Charter | Capt. Dan Zier"
+description: "Book a private Key West fishing charter with Capt. Dan Zier. Shark fishing, Goliath grouper, tarpon, snapper and family trips for up to four anglers."
 hero_badge: "BOOKING & CONTACT"
 headline: "Ready to Go Fishing?"
 subtitle: "Your Key West fishing adventure starts here. Get in touch with Capt. Dan to plan your private charter."

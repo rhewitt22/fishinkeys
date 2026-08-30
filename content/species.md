@@ -1,6 +1,6 @@
 ---
-title: "What We Catch in Key West"
-description: "Explore the variety of fish species you can catch in Key West with Capt. Dan Zier, from Lemon and Bull Sharks to Goliath Grouper, Tarpon, and Snapper."
+title: "Key West Fish Species | Sharks, Tarpon & Goliath Grouper"
+description: "Discover the fish you can catch with Key West Fishing Connection, including lemon sharks, bull sharks, blacktips, Goliath grouper, tarpon and snapper."
 hero_badge: "KEY WEST SPECIES GUIDE"
 headline: "What We Catch in Key West"
 subtitle: "The waters surrounding Key West support an incredible variety of fish. Exactly what we target depends on the season, weather, tides and what kind of fishing experience you're looking for."
