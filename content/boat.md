@@ -1,24 +1,52 @@
 ---
-title: "The Boat & Vessel Specs"
-description: "36' Custom Center-Console powered by 900HP Triple Outboards for unmatched speed, comfort, and safety."
+title: "The 22' Lake & Bay"
+description: "Maneuvers easily around a hard-running shark, positioning over structure for a Goliath grouper, and provides the versatility needed for Capt. Dan’s style of fishing."
 hero_badge: "THE FLEET"
-eyebrow: "DESIGNED FOR PERFORMANCE & COMFORT"
-headline: "State-of-the-Art Charter Vessel"
+eyebrow: "DESIGNED FOR COMFORT & MANUVERABILITY"
+headline: Built for Key West Fishing"
 image: "images/hero-boat.jpg"
 image_alt: "36 Custom Charter Vessel"
 specs:
-  - category: "ENGINES"
-    value: "Triple 300HP Yamahas"
-  - category: "ELECTRONICS"
-    value: "Dual Garmin 8616 Sonar/Radar"
-  - category: "COMFORT"
-    value: "Private Head / Toilet"
-  - category: "STABILITY"
-    value: "Seakeeper Gyro Stabilizer"
+  - category: "Boat"
+    value: "Lake & Bay"
+  - category: "Length"
+    value: "22 Feet"
+  - category: "Capacity"
+    value: "Up to 4 Anglers"
+  - category: "Charter Type"
+    value: "Private"
+  - category: "Fishing Styles"
+    value: "Light Tackle, Heavy Tackle, Bottom Fishing & Spinning"
+  - category: "Primary Targets"
+    value: "Sharks, Goliath Grouper, Tarpon & Snapper"
 type: "boat"
 layout: "single"
 ---
 
-Our 36-foot custom center console was purpose-built for the challenging waters of the Florida Keys and Gulf Stream. With a wide beam, high gunwales, and heavy deep-V hull, it cuts smoothly through sea chop while keeping guests dry and stable.
+Your fishing platform is Capt. Dan's 22-foot Lake & Bay.
 
-Equipped with triple 300HP Yamaha V6 engines, we cruise at 40 knots—getting you to the fishing grounds faster so you spend more time fishing and less time riding.
+Unlike a large offshore sportfishing boat, this setup allows Capt. Dan to efficiently fish the channels, shallow areas, hard bottom, rock piles and other productive environments surrounding Key West.
+
+The boat accommodates up to four anglers, keeping trips personal and giving everyone room to participate.
+
+## Made for Big Fish
+
+Don't let the 22-foot length fool you.
+
+This boat regularly puts anglers within casting—and fighting—distance of some very large fish.
+
+From maneuvering around a hard-running shark to positioning over structure for a Goliath grouper, the boat provides the versatility needed for Capt. Dan's style of fishing.
+
+## Everything You Need to Fish
+
+Fishing equipment is supplied for your charter.
+
+Depending on the target species, Capt. Dan may use everything from lighter spinning tackle for snapper to heavy equipment capable of battling sharks and giant grouper.
+
+Rods, reels, tackle, bait and fishing licenses are included.
+
+All you need to do is show up ready to fish.
+
+## Boat Details
+
+
