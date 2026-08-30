@@ -22,6 +22,9 @@ menu:
     - name: "Trips & Rates"
       url: "/trips/"
       weight: 10
+    - name: "What We Catch"
+      url: "/species/"
+      weight: 15
     - name: "Reviews"
       url: "/reviews/"
       weight: 20

@@ -1,0 +1,118 @@
+{{ define "main" }}
+<!-- Page Header Banner -->
+<section style="background-color: var(--color-primary); color: #ffffff; padding: 120px 0 60px; margin-top: 80px;">
+  <div class="container" style="text-align: center;">
+    {{ with .Params.hero_badge }}<span class="hero-badge" style="background-color: var(--color-secondary-container); color: var(--color-primary);">{{ . }}</span>{{ end }}
+    <h1 class="text-display-lg" style="color: #ffffff; margin-top: 1rem;">{{ default .Title .Params.headline }}</h1>
+    {{ with .Params.subtitle }}
+      <p class="text-body-lg" style="color: var(--color-primary-fixed-dim); max-width: 680px; margin: 1rem auto 0;">
+        {{ . }}
+      </p>
+    {{ end }}
+  </div>
+</section>
+
+<!-- Content Intro (if any) -->
+{{ if .Content }}
+<section style="padding: 40px 0 0;">
+  <div class="container" style="max-width: 800px; text-align: center;">
+    <div class="content-body text-body-lg" style="color: var(--color-on-surface-variant);">
+      {{ .Content }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- Categorized Species Sections -->
+{{ with .Params.categories }}
+<section style="padding: var(--section-gap) 0;">
+  <div class="container">
+    {{ range . }}
+    <div style="margin-bottom: 4rem;">
+      <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
+        <h2 class="text-headline-md" style="color: var(--color-primary);">{{ .name }}</h2>
+        {{ with .description }}
+        <p class="text-body-md" style="color: var(--color-on-surface-variant); margin-top: 0.5rem; max-width: 700px;">
+          {{ . }}
+        </p>
+        {{ end }}
+        <div style="height: 3px; width: 60px; background-color: var(--color-secondary); margin-top: 0.75rem;"></div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+        {{ range .items }}
+        <div class="species-card" style="background: #ffffff; border-radius: var(--border-radius-lg); border: 1px solid var(--color-outline-variant); padding: 1.75rem; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(0,23,54,0.03); transition: transform var(--transition-fast), box-shadow var(--transition-fast);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.75rem;">
+            <h3 class="text-headline-sm" style="font-size: 1.3rem; margin: 0; color: var(--color-primary);">{{ .name }}</h3>
+            {{ with .badge }}
+            <span class="text-label-bold" style="background-color: var(--color-surface-container); color: var(--color-secondary); padding: 0.25rem 0.6rem; border-radius: var(--border-radius); font-size: 0.75rem; white-space: nowrap; flex-shrink: 0;">{{ . }}</span>
+            {{ end }}
+          </div>
+          {{ with .tagline }}
+          <div style="font-weight: 600; color: var(--color-secondary); font-size: 0.95rem; margin-bottom: 0.75rem;">
+            {{ . }}
+          </div>
+          {{ end }}
+          <p class="text-body-md" style="color: var(--color-on-surface-variant); line-height: 1.6; margin: 0;">
+            {{ .description }}
+          </p>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+<!-- Flat Species Grid Fallback -->
+{{ with .Params.species }}
+<section style="padding: var(--section-gap) 0;">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+      {{ range . }}
+      <div class="species-card" style="background: #ffffff; border-radius: var(--border-radius-lg); border: 1px solid var(--color-outline-variant); padding: 1.75rem; display: flex; flex-direction: column; box-shadow: 0 4px 12px rgba(0,23,54,0.03);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.75rem;">
+          <h3 class="text-headline-sm" style="font-size: 1.3rem; margin: 0; color: var(--color-primary);">{{ .name }}</h3>
+          {{ with .badge }}
+          <span class="text-label-bold" style="background-color: var(--color-surface-container); color: var(--color-secondary); padding: 0.25rem 0.6rem; border-radius: var(--border-radius); font-size: 0.75rem; white-space: nowrap; flex-shrink: 0;">{{ . }}</span>
+          {{ end }}
+        </div>
+        {{ with .tagline }}
+        <div style="font-weight: 600; color: var(--color-secondary); font-size: 0.95rem; margin-bottom: 0.75rem;">
+          {{ . }}
+        </div>
+        {{ end }}
+        <p class="text-body-md" style="color: var(--color-on-surface-variant); line-height: 1.6; margin: 0;">
+          {{ .description }}
+        </p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- CTA Section -->
+{{ with .Params.cta }}
+<section style="padding: 0 0 var(--section-gap);">
+  <div class="container">
+    <div style="background-color: var(--color-surface-container-highest); border-radius: var(--border-radius-xl); padding: 3.5rem 2.5rem; border: 1px solid var(--color-outline-variant); text-align: center; max-width: 900px; margin: 0 auto;">
+      <h2 class="text-headline-md" style="margin-bottom: 1rem;">{{ .title }}</h2>
+      <p class="text-body-lg" style="color: var(--color-on-surface-variant); max-width: 650px; margin: 0 auto 2rem;">
+        {{ .description }}
+      </p>
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        {{ with .primary_button }}
+        <a href="{{ if hasPrefix .url "tel:" }}{{ .url | safeURL }}{{ else }}{{ .url | relURL }}{{ end }}" class="btn btn-primary">{{ .text }}</a>
+        {{ end }}
+        {{ with .secondary_button }}
+        <a href="{{ if hasPrefix .url "tel:" }}{{ .url | safeURL }}{{ else }}{{ .url | relURL }}{{ end }}" class="btn btn-outline">{{ .text }}</a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{ end }}
