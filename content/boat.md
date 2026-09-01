@@ -46,7 +46,3 @@ Depending on the target species, Capt. Dan may use everything from lighter spinn
 Rods, reels, tackle, bait and fishing licenses are included.
 
 All you need to do is show up ready to fish.
-
-## Boat Details
-
-

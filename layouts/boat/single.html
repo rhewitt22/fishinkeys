@@ -15,14 +15,22 @@
 <!-- Boat Specs Detail -->
 <section style="padding: var(--section-gap) 0;">
   <div class="container">
-    <div style="display: flex; gap: 4rem; align-items: center; flex-wrap: wrap;">
+    <div style="display: flex; gap: 4rem; align-items: flex-start; flex-wrap: wrap;">
       <div style="flex: 1.2; min-width: 320px;">
         {{ with .Params.eyebrow }}<span class="text-label-bold" style="color: var(--color-secondary);">{{ . }}</span>{{ end }}
         {{ with .Params.headline }}<h2 class="text-headline-md" style="margin: 0.5rem 0 1.5rem;">{{ . }}</h2>{{ end }}
         
-        <div class="content-body" style="margin-bottom: 2rem;">
+        <div class="content-body">
           {{ .Content }}
         </div>
+      </div>
+
+      <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; gap: 2rem;">
+        {{ with .Params.image }}
+        <div style="border-radius: var(--border-radius-xl); overflow: hidden; border: 1px solid var(--color-outline-variant); box-shadow: 0 20px 40px rgba(0,23,54,0.1);">
+          <img src="{{ . | relURL }}" alt="{{ default $.Title $.Params.image_alt }}" style="width: 100%; height: auto; display: block;">
+        </div>
+        {{ end }}
 
         {{ with .Params.specs }}
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
@@ -35,14 +43,6 @@
         </div>
         {{ end }}
       </div>
-
-      {{ with .Params.image }}
-      <div style="flex: 1; min-width: 300px;">
-        <div style="border-radius: var(--border-radius-xl); overflow: hidden; border: 1px solid var(--color-outline-variant); box-shadow: 0 20px 40px rgba(0,23,54,0.1);">
-          <img src="{{ . | relURL }}" alt="{{ default $.Title $.Params.image_alt }}" style="width: 100%; height: auto; display: block;">
-        </div>
-      </div>
-      {{ end }}
     </div>
   </div>
 </section>
