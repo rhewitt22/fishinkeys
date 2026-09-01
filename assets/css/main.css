@@ -529,6 +529,38 @@ header.site-header.scrolled {
   margin-bottom: 1rem;
 }
 
+/* Satisfaction Metrics */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.metric-card {
+  background: #ffffff;
+  padding: 1.75rem 1.25rem;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--color-outline-variant);
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 23, 54, 0.03);
+}
+
+@media (max-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 480px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
+}
+
 /* Footer */
 footer.site-footer {
   background-color: var(--color-primary);

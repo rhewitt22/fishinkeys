@@ -43,9 +43,9 @@
       <div class="nautical-divider"></div>
     </div>
 
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.5rem; max-width: 1040px; margin: 0 auto;">
+    <div class="metrics-grid">
       {{ range . }}
-      <div style="background: #ffffff; padding: 1.75rem 1.25rem; border-radius: var(--border-radius-lg); border: 1px solid var(--color-outline-variant); text-align: center; box-shadow: 0 4px 12px rgba(0,23,54,0.03);">
+      <div class="metric-card">
         <div class="text-display-lg" style="font-size: 2.5rem; color: var(--color-secondary); font-weight: 800; line-height: 1;">
           {{ .percentage }}
         </div>
