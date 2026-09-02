@@ -30,24 +30,10 @@ bento_section:
       image_alt: "Key West Captain"
 
     - col_span: 4
-      theme: "dark"
-      icon: "sailing"
-      title: "Top-Tier Fleet"
-      description: "Experience the comfort of our 36' custom center-console, equipped with the latest Garmin sonar and triple Yamaha outboards."
-      specs: "SPECS: 900HP • 6 PASSENGERS"
-
-    - col_span: 4
       theme: "teal"
       icon: "map"
       title: "Local Knowledge"
       description: "We know the secret honey holes from the Marquesas to the Dry Tortugas. Our local routes ensure you're always where the bite is hottest."
-
-    - col_span: 8
-      theme: "dark"
-      background_image: "images/hero-boat.jpg"
-      tag: "TROPHY REELING • KEY WEST"
-      title: "World-Class Offshore & Reef Excursions"
-      description: "Targeting Mahi-Mahi, Tuna, Wahoo, Sailfish, Snapper, and Grouper in pristine waters."
 
 # --- FEATURED TRIPS HEADER ---
 trips_section:
