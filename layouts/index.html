@@ -1,6 +1,11 @@
 {{ define "main" }}
 <!-- Hero Section -->
 <section class="hero-section" style="background-image: url('{{ default "images/hero-boat.jpg" .Params.hero.background_image | relURL }}');">
+  {{ with .Params.hero.background_video }}
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="{{ default "images/hero-boat.jpg" $.Params.hero.background_image | relURL }}" aria-hidden="true" tabindex="-1">
+    <source src="{{ . | relURL }}" type="video/mp4">
+  </video>
+  {{ end }}
   <div class="hero-overlay"></div>
   <div class="container">
     <div class="hero-content">

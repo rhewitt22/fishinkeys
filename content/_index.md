@@ -9,6 +9,7 @@ hero:
   title: "Experience the Best of Key West Fishing"
   subtitle: "Join Captain-led excursions for world-class offshore adventures and reef explorations in the pristine Florida Keys."
   background_image: "images/hero-boat.jpg"
+  background_video: "images/capt-dan-flyby.mp4"
   primary_button:
     text: "Book Your Trip"
     url: "/trips/"
