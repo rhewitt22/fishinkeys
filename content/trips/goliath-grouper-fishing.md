@@ -12,7 +12,7 @@ features:
   - "Bucket-list trophy challenge requiring brute force"
 button_text: "Book Goliath Grouper"
 button_url: "tel:3055550123"
-featured: true
+featured: false
 weight: 9
 ---
 

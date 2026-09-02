@@ -12,7 +12,7 @@ features:
   - "Complimentary catch cleaning & filleting included"
 button_text: "Book Snapper Trip"
 button_url: "tel:3055550123"
-featured: true
+featured: false
 weight: 12
 ---
 

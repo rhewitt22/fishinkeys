@@ -13,6 +13,7 @@ features:
 button_text: "Book Tarpon Trip"
 button_url: "tel:3055550123"
 featured: true
+featured_weight: 2
 weight: 14
 ---
 

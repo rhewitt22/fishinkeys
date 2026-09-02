@@ -103,7 +103,7 @@
 {{ end }}
 
 <!-- Featured Trips Section -->
-{{ $featuredTrips := where (where .Site.RegularPages "Section" "trips") ".Params.featured" true }}
+{{ $featuredTrips := sort (where (where .Site.RegularPages "Section" "trips") ".Params.featured" true) ".Params.featured_weight" "asc" }}
 {{ if gt (len $featuredTrips) 0 }}
 <section style="padding: var(--section-gap) 0; background-color: var(--color-surface-container);">
   <div class="container">

@@ -12,7 +12,7 @@ features:
   - "Target larger, trophy-class predators"
 button_text: "Book 4-Hour Shark"
 button_url: "tel:3055550123"
-featured: true
+featured: false
 weight: 7
 ---
 

@@ -13,6 +13,7 @@ features:
 button_text: "Book Family Fishing"
 button_url: "tel:3055550123"
 featured: true
+featured_weight: 3
 weight: 10
 ---
 

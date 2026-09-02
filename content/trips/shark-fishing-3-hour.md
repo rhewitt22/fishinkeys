@@ -12,7 +12,7 @@ features:
   - "Great for couples, families, beginners & trophy seekers"
 button_text: "Book Shark Fishing"
 button_url: "tel:3055550123"
-featured: true
+featured: false
 weight: 5
 ---
 

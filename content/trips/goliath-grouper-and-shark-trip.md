@@ -13,6 +13,7 @@ features:
 button_text: "Book Combo Trip"
 button_url: "tel:3055550123"
 featured: true
+featured_weight: 1
 weight: 15
 ---
 
