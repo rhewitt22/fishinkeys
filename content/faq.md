@@ -46,5 +46,5 @@ cta:
     url: "/trips/"
   secondary_button:
     text: "Call Capt. Dan"
-    url: "tel:3055550123"
+    url: "tel:3053930566"
 ---

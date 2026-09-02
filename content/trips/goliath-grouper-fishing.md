@@ -12,7 +12,7 @@ features:
   - "Heavy-duty tackle & stand-up harness battles"
   - "Bucket-list trophy challenge requiring brute force"
 button_text: "Book Goliath Grouper"
-button_url: "tel:3055550123"
+button_url: "tel:3053930566"
 featured: false
 weight: 9
 ---

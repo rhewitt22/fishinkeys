@@ -12,7 +12,7 @@ rating_overview:
   label: "Overall Rating"
   platform: "FishingBooker"
   description: "Key West Fishing Connection currently carries a 5.0-star rating on FishingBooker with hundreds of reviews from anglers who have fished with Capt. Dan."
-  fishingbooker_url: "https://fishingbooker.com"
+  fishingbooker_url: "https://fishingbooker.com/charters/view/31066"
   button_text: "Read Verified Reviews on FishingBooker →"
 
 metrics:
@@ -48,5 +48,5 @@ cta:
     url: "/trips/"
   secondary_button:
     text: "See FishingBooker Reviews"
-    url: "https://fishingbooker.com"
+    url: "https://fishingbooker.com/charters/view/31066"
 ---

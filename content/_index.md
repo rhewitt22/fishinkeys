@@ -56,7 +56,7 @@ cta_section:
   image_alt: "Key West Charter Sunset"
   primary_button:
     text: "Book Now"
-    url: "tel:3055550123"
+    url: "tel:3053930566"
   secondary_button:
     text: "Explore Trips"
     url: "/trips/"

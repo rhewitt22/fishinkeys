@@ -12,7 +12,7 @@ features:
   - "Fast-paced action for all skill levels"
   - "Complimentary catch cleaning & filleting included"
 button_text: "Book Snapper Trip"
-button_url: "tel:3055550123"
+button_url: "tel:3053930566"
 featured: false
 weight: 12
 ---
