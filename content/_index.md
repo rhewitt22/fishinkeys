@@ -52,7 +52,7 @@ testimonial:
 cta_section:
   title: "Ready to cast your line in paradise?"
   description: "Spaces fill up fast during peak season. Book today to lock in your preferred date for an unforgettable Key West charter experience."
-  image: "images/hero-boat.jpg"
+  image: "images/lake-and-bay.jpg"
   image_alt: "Key West Charter Sunset"
   primary_button:
     text: "Book Now"
