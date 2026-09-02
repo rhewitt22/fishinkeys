@@ -4,8 +4,8 @@ description: "Fish Key West aboard Capt. Dan's 22-foot Lake & Bay, a versatile f
 hero_badge: "THE FLEET"
 eyebrow: "DESIGNED FOR COMFORT & MANEUVERABILITY"
 headline: "Built for Key West Fishing"
-image: "images/hero-boat.jpg"
-image_alt: "36 Custom Charter Vessel"
+image: "images/lake-and-bay.jpg"
+image_alt: "Capt. Dan's 22' Lake & Bay Fishing Boat at Sunset"
 specs:
   - category: "Boat"
     value: "Lake & Bay"
