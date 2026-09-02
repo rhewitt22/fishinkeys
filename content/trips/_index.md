@@ -4,7 +4,7 @@ description: "Explore Key West shark fishing, Goliath grouper, tarpon, snapper a
 layout: "list"
 hero_badge: "CHARTER RATES & PACKAGES"
 headline: "Key West Fishing Charter Trips"
-subtitle: "All charter rates include custom rod & reel tackle, live bait, ice, fish cleaning & bagging, and USCG licensed captain & mate."
+subtitle: "All charter rates include custom rod & reel tackle, live bait, ice, fish cleaning & bagging."
 whats_included_title: "What's Included On Every Charter"
 whats_included_subtitle: "Every standard Key West Fishing Connection charter includes the fishing essentials:"
 included_items:

@@ -121,7 +121,7 @@
       {{ range $featuredTrips }}
       <div class="trip-card">
         <div style="position: relative;">
-          <img src="{{ default "images/hero-boat.jpg" .Params.image | relURL }}" alt="{{ default .Title .Params.image_alt }}" class="trip-card-image">
+          <img src="{{ default "images/hero-boat.jpg" .Params.image | relURL }}" alt="{{ default .Title .Params.image_alt }}" class="trip-card-image"{{ with .Params.image_position }} style="object-position: {{ . }};"{{ end }}>
           {{ with .Params.price }}
             <div class="trip-price-badge">{{ . }}+</div>
           {{ end }}

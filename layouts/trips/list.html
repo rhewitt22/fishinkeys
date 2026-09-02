@@ -19,7 +19,7 @@
       {{ range .Pages.ByWeight }}
       <div class="trip-card" {{ if .Params.badge }}style="border: 2px solid var(--color-secondary);"{{ end }}>
         <div style="position: relative;">
-          <img src="{{ default "images/hero-boat.jpg" .Params.image | relURL }}" alt="{{ default .Title .Params.image_alt }}" class="trip-card-image">
+          <img src="{{ default "images/hero-boat.jpg" .Params.image | relURL }}" alt="{{ default .Title .Params.image_alt }}" class="trip-card-image"{{ with .Params.image_position }} style="object-position: {{ . }};"{{ end }}>
           {{ with .Params.price }}
             <div class="trip-price-badge" {{ if $.Params.badge }}style="background-color: var(--color-tertiary); color: #fff;"{{ end }}>{{ . }}</div>
           {{ end }}

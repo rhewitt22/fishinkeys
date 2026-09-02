@@ -4,7 +4,7 @@ price: ""
 duration: "4 HOURS"
 guests: "UP TO 4 ANGLERS"
 badge: ""
-image: "images/hero-boat.jpg"
+image: "images/shark-and-sandbar.jpg"
 image_alt: "Shark and Sandbar Trip Key West"
 features:
   - "Target: Sharks & shallow-water predators"

@@ -4,7 +4,7 @@ price: ""
 duration: "3 HOURS"
 guests: "UP TO 4 ANGLERS"
 badge: ""
-image: "images/hero-boat.jpg"
+image: "images/shark-fishing.jpg"
 image_alt: "3-Hour Shark Fishing in Key West"
 features:
   - "Target: Bull, Lemon, Blacktip, Nurse & Hammerhead Sharks"
