@@ -43,7 +43,7 @@ cta:
   description: "Capt. Dan is always happy to discuss conditions, trip options, and recommendations for your group."
   primary_button:
     text: "Book Your Charter"
-    url: "/trips/"
+    url: "trips/"
   secondary_button:
     text: "Call Capt. Dan at (305) 393-0566"
     url: "tel:3053930566"

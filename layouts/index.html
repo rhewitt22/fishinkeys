@@ -112,7 +112,7 @@
         {{ with .Params.trips_section.eyebrow }}<span class="text-label-bold" style="color: var(--color-secondary);">{{ . }}</span>{{ end }}
         <h2 class="text-headline-md" style="margin-top: 0.5rem;">{{ default "Featured Fishing Charters" .Params.trips_section.title }}</h2>
       </div>
-      <a href="{{ default "/trips/" .Params.trips_section.link_url | relURL }}" class="text-label-bold" style="color: var(--color-primary); border-bottom: 2px solid var(--color-primary);">
+      <a href="{{ default "trips/" .Params.trips_section.link_url | relURL }}" class="text-label-bold" style="color: var(--color-primary); border-bottom: 2px solid var(--color-primary);">
         {{ default "View All Packages →" .Params.trips_section.link_text }}
       </a>
     </div>

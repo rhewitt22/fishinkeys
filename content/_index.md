@@ -12,10 +12,10 @@ hero:
   background_video: "images/capt-dan-flyby.mp4"
   primary_button:
     text: "Book Your Trip"
-    url: "/trips/"
+    url: "trips/"
   secondary_button:
     text: "View Rates"
-    url: "/trips/"
+    url: "trips/"
 
 # --- WHY CHOOSE US (BENTO GRID) ---
 bento_section:
@@ -40,7 +40,7 @@ trips_section:
   eyebrow: "Our Offerings"
   title: "Featured Fishing Charters"
   link_text: "View All Packages →"
-  link_url: "/trips/"
+  link_url: "trips/"
 
 # --- TESTIMONIAL BANNER ---
 testimonial:
@@ -59,5 +59,5 @@ cta_section:
     url: "tel:3053930566"
   secondary_button:
     text: "Explore Trips"
-    url: "/trips/"
+    url: "trips/"
 ---

@@ -76,7 +76,7 @@ cta:
   description: "Whether you're looking for a monster Goliath grouper, a trophy shark, or a fun morning of snapper fishing with the family, Capt. Dan has you covered."
   primary_button:
     text: "Explore Trips & Rates"
-    url: "/trips/"
+    url: "trips/"
   secondary_button:
     text: "Call Capt. Dan at (305) 393-0566"
     url: "tel:3053930566"

@@ -45,7 +45,7 @@ cta:
   description: "Join hundreds of satisfied anglers and experience why Key West Fishing Connection is rated a perfect 5.0 stars."
   primary_button:
     text: "Book Your Charter"
-    url: "/trips/"
+    url: "trips/"
   secondary_button:
     text: "See FishingBooker Reviews"
     url: "https://fishingbooker.com/charters/view/31066"
