@@ -45,6 +45,6 @@ cta:
     text: "Book Your Charter"
     url: "/trips/"
   secondary_button:
-    text: "Call Capt. Dan"
+    text: "Call Capt. Dan at (305) 393-0566"
     url: "tel:3053930566"
 ---
