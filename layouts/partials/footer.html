@@ -34,7 +34,14 @@
       <div>
         <h4 class="footer-title">Location & Contact</h4>
         <p class="footer-subtext" style="line-height: 1.8;">
+          {{ if .Site.Params.location_url }}
+          <a href="{{ .Site.Params.location_url | safeURL }}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;">
+            <strong>{{ default "Ocean's Edge Marina" .Site.Params.location_name }}</strong>
+            <span class="material-symbols-outlined" style="font-size: 0.95rem; opacity: 0.85;">open_in_new</span>
+          </a><br>
+          {{ else }}
           {{ with .Site.Params.location_name }}<strong>{{ . }}</strong><br>{{ end }}
+          {{ end }}
           {{ with .Site.Params.location_address }}{{ . }}<br>{{ end }}
           {{ .Site.Params.hours }}
         </p>

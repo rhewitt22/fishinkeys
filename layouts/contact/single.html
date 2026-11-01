@@ -79,8 +79,23 @@
               <div>
                 <div class="text-label-bold" style="color: var(--color-primary);">Departure Location</div>
                 <div class="text-body-md" style="color: var(--color-on-surface-variant); margin-top: 0.2rem;">
-                  {{ with .Site.Params.location_name }}<strong>{{ . }}</strong><br>{{ end }}
+                  {{ if .Site.Params.location_url }}
+                    <a href="{{ .Site.Params.location_url | safeURL }}" target="_blank" rel="noopener noreferrer" style="color: var(--color-primary); text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;">
+                      <strong>{{ default "Ocean's Edge Marina" .Site.Params.location_name }}</strong>
+                      <span class="material-symbols-outlined" style="font-size: 1rem; color: var(--color-secondary);">open_in_new</span>
+                    </a><br>
+                  {{ else }}
+                    {{ with .Site.Params.location_name }}<strong>{{ . }}</strong><br>{{ end }}
+                  {{ end }}
                   {{ default "Key West & Stock Island, FL" .Site.Params.location_address }}
+                  {{ with .Site.Params.location_url }}
+                  <div style="margin-top: 0.35rem;">
+                    <a href="{{ . | safeURL }}" target="_blank" rel="noopener noreferrer" style="color: var(--color-secondary); font-size: 0.875rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;">
+                      <span>Get Directions on Google Maps</span>
+                      <span class="material-symbols-outlined" style="font-size: 1rem;">directions</span>
+                    </a>
+                  </div>
+                  {{ end }}
                 </div>
               </div>
             </div>

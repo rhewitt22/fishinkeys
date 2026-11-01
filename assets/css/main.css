@@ -633,6 +633,16 @@ footer.site-footer {
   margin-bottom: 1.5rem;
 }
 
+.footer-subtext a {
+  color: inherit;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.footer-subtext a:hover {
+  color: var(--color-secondary-fixed);
+  opacity: 1;
+}
+
 .footer-title {
   color: var(--color-secondary-container);
   font-size: 0.875rem;
