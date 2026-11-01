@@ -49,7 +49,7 @@ When sharks arrive behind the boat or a Goliath grouper eats a bait near structu
 
 That's part of the fun.
 
-## Great Wwith First-Time Anglers
+## Great With First-Time Anglers
 
 Never caught a shark?
 
