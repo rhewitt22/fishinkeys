@@ -576,9 +576,9 @@ header.site-header.scrolled {
 /* Satisfaction Metrics */
 .metrics-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
-  max-width: 920px;
+  max-width: 1040px;
   margin: 0 auto;
 }
 
@@ -591,7 +591,7 @@ header.site-header.scrolled {
   box-shadow: 0 4px 12px rgba(0, 23, 54, 0.03);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .metrics-grid {
     grid-template-columns: repeat(2, 1fr);
     max-width: 600px;
@@ -603,6 +603,18 @@ header.site-header.scrolled {
     grid-template-columns: 1fr;
     max-width: 320px;
   }
+}
+
+.highlight-card a:not(.btn) {
+  color: var(--color-secondary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+}
+
+.highlight-card a:not(.btn):hover {
+  color: var(--color-primary);
 }
 
 /* Footer */

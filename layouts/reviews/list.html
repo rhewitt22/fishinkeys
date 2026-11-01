@@ -16,20 +16,43 @@
 {{ with .Params.rating_overview }}
 <section style="padding: 3.5rem 0; background-color: var(--color-surface-container-low); border-bottom: 1px solid var(--color-outline-variant);">
   <div class="container" style="max-width: 860px; text-align: center;">
-    <div style="display: inline-flex; align-items: center; gap: 0.5rem; background-color: rgba(235, 111, 43, 0.1); padding: 0.4rem 1.25rem; border-radius: 50px; margin-bottom: 1.5rem;">
-      <span style="color: var(--color-tertiary); font-size: 1.25rem;">{{ .stars }}</span>
-      <span class="text-label-bold" style="color: var(--color-primary); font-size: 1.1rem;">{{ .score }} {{ .label }}</span>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem;">
+      <div style="display: inline-flex; align-items: center; gap: 0.5rem; background-color: rgba(235, 111, 43, 0.1); padding: 0.4rem 1.25rem; border-radius: 50px;">
+        <span style="color: var(--color-tertiary); font-size: 1.25rem;">{{ .stars }}</span>
+        <span class="text-label-bold" style="color: var(--color-primary); font-size: 1.1rem;">{{ .score }} {{ .label }}</span>
+      </div>
+      {{ with .accolade }}
+      <div style="display: inline-flex; align-items: center; gap: 0.4rem; background-color: rgba(0, 103, 125, 0.1); padding: 0.4rem 1.1rem; border-radius: 50px;">
+        <span class="material-symbols-outlined" style="color: var(--color-secondary); font-size: 1.2rem;">workspace_premium</span>
+        <span class="text-label-bold" style="color: var(--color-secondary); font-size: 0.95rem;">{{ . }}</span>
+      </div>
+      {{ end }}
+      {{ with .ranking_badge }}
+      <div style="display: inline-flex; align-items: center; gap: 0.4rem; background-color: rgba(0, 23, 54, 0.08); padding: 0.4rem 1.1rem; border-radius: 50px;">
+        <span class="material-symbols-outlined" style="color: var(--color-primary); font-size: 1.2rem;">trophy</span>
+        <span class="text-label-bold" style="color: var(--color-primary); font-size: 0.95rem;">{{ . }}</span>
+      </div>
+      {{ end }}
     </div>
     
     <p class="text-body-lg" style="color: var(--color-on-surface); max-width: 720px; margin: 0 auto 2rem; font-weight: 500;">
       {{ .description }}
     </p>
 
-    {{ with .fishingbooker_url }}
-    <a href="{{ . | safeURL }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 1rem; padding: 0.9rem 2rem;">
-      {{ default "Read Reviews on FishingBooker →" $.Params.rating_overview.button_text }}
-    </a>
-    {{ end }}
+    <div style="display: flex; justify-content: center; align-items: center; gap: 1rem; flex-wrap: wrap;">
+      {{ $taUrl := default .tripadvisor_url $.Site.Params.tripadvisor_url }}
+      {{ with $taUrl }}
+      <a href="{{ . | safeURL }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 1rem; padding: 0.9rem 2rem;">
+        {{ default "Read Verified Reviews on TripAdvisor →" $.Params.rating_overview.primary_button_text }}
+      </a>
+      {{ end }}
+      {{ $fbUrl := default .fishingbooker_url $.Site.Params.fishingbooker_url }}
+      {{ with $fbUrl }}
+      <a href="{{ . | safeURL }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size: 1rem; padding: 0.9rem 2rem;">
+        {{ default "Also on FishingBooker ↗" $.Params.rating_overview.secondary_button_text }}
+      </a>
+      {{ end }}
+    </div>
   </div>
 </section>
 {{ end }}
@@ -38,7 +61,7 @@
 {{ with .Params.metrics }}
 <section style="padding: var(--section-gap) 0 3rem;">
   <div class="container">
-    <div class="section-header" style="margin-bottom: 2.5rem;">
+    <div class="section-header" style="margin-bottom: 2.5rem; text-align: center;">
       <h2 class="text-headline-md">Angler Satisfaction Metrics</h2>
       <div class="nautical-divider"></div>
     </div>
@@ -47,7 +70,7 @@
       {{ range . }}
       <div class="metric-card">
         <div class="text-display-lg" style="font-size: 2.5rem; color: var(--color-secondary); font-weight: 800; line-height: 1;">
-          {{ .percentage }}
+          {{ default .percentage .value }}
         </div>
         <div class="text-label-bold" style="color: var(--color-primary); margin-top: 0.75rem; font-size: 0.9rem;">
           {{ .label }}
@@ -59,16 +82,16 @@
 </section>
 {{ end }}
 
-<!-- Highlights: Real Fish. Real Reviews -->
+<!-- Highlights: Real Fish. Real Reviews Narrative Summary -->
 {{ with .Params.highlight_section }}
-<section style="padding: 3rem 0 var(--section-gap);">
+<section style="padding: 3rem 0;">
   <div class="container" style="max-width: 920px;">
-    <div style="background: #ffffff; border-radius: var(--border-radius-xl); border: 1px solid var(--color-outline-variant); padding: 3.5rem 3rem; box-shadow: 0 10px 30px rgba(0,23,54,0.05);">
+    <div class="highlight-card" style="background: #ffffff; border-radius: var(--border-radius-xl); border: 1px solid var(--color-outline-variant); padding: 3.5rem 3rem; box-shadow: 0 10px 30px rgba(0,23,54,0.05);">
       {{ with .eyebrow }}<span class="text-label-bold" style="color: var(--color-secondary); display: block; margin-bottom: 0.5rem;">{{ . }}</span>{{ end }}
       <h2 class="text-headline-md" style="margin-bottom: 1.5rem; color: var(--color-primary);">{{ .title }}</h2>
       
-      <p class="text-body-lg" style="color: var(--color-on-surface-variant); line-height: 1.7; margin-bottom: 2rem;">
-        {{ .summary }}
+      <p class="text-body-lg highlight-summary" style="color: var(--color-on-surface-variant); line-height: 1.7; margin-bottom: 2rem;">
+        {{ .summary | markdownify }}
       </p>
 
       {{ with .highlights_intro }}
@@ -78,21 +101,69 @@
       {{ with .bullet_points }}
       <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem;">
         {{ range . }}
-        <div style="display: flex; align-items: center; gap: 0.85rem;">
-          <div style="width: 32px; height: 32px; border-radius: 50%; background-color: rgba(0, 103, 125, 0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <div style="display: flex; align-items: flex-start; gap: 0.85rem;">
+          <div style="width: 32px; height: 32px; border-radius: 50%; background-color: rgba(0, 103, 125, 0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;">
             <span class="material-symbols-outlined" style="color: var(--color-secondary); font-size: 1.2rem;">check</span>
           </div>
-          <span class="text-body-lg" style="color: var(--color-on-surface); font-weight: 600;">{{ . }}</span>
+          <span class="text-body-lg" style="color: var(--color-on-surface); font-weight: 500; line-height: 1.6;">{{ . | markdownify }}</span>
         </div>
         {{ end }}
       </div>
       {{ end }}
 
-      <div style="text-align: center; padding-top: 1.5rem; border-top: 1px solid var(--color-outline-variant);">
-        <a href="{{ default "https://fishingbooker.com/charters/view/31066" $.Params.rating_overview.fishingbooker_url | safeURL }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size: 0.95rem;">
-          Explore All FishingBooker Verified Reviews ↗
+      <div style="text-align: center; padding-top: 1.5rem; border-top: 1px solid var(--color-outline-variant); display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        {{ $ctaUrl := default .tripadvisor_cta_url (default $.Params.rating_overview.tripadvisor_url $.Site.Params.tripadvisor_url) }}
+        {{ with $ctaUrl }}
+        <a href="{{ . | safeURL }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="font-size: 0.95rem;">
+          {{ default "Explore All 930+ Reviews on TripAdvisor ↗" $.Params.highlight_section.tripadvisor_cta_text }}
         </a>
+        {{ end }}
+        {{ $fbUrl := default $.Params.rating_overview.fishingbooker_url $.Site.Params.fishingbooker_url }}
+        {{ with $fbUrl }}
+        <a href="{{ . | safeURL }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size: 0.95rem;">
+          View FishingBooker Reviews ↗
+        </a>
+        {{ end }}
       </div>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- Custom Native Cards: Synthesized Themes from Verified Reviews -->
+{{ with .Params.theme_cards_section }}
+<section style="padding: 2rem 0 var(--section-gap);">
+  <div class="container">
+    <div class="section-header" style="margin-bottom: 2.5rem; text-align: center;">
+      {{ with .eyebrow }}<span class="text-label-bold" style="color: var(--color-secondary);">{{ . }}</span>{{ end }}
+      <h2 class="text-headline-md" style="margin-top: 0.5rem;">{{ .title }}</h2>
+      <div class="nautical-divider"></div>
+    </div>
+
+    <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+      {{ range .cards }}
+      <div class="review-card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
+        <div>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+            {{ with .icon }}
+            <div style="width: 44px; height: 44px; border-radius: var(--border-radius-lg); background-color: rgba(0, 103, 125, 0.1); display: flex; align-items: center; justify-content: center;">
+              <span class="material-symbols-outlined" style="color: var(--color-secondary); font-size: 1.5rem;">{{ . }}</span>
+            </div>
+            {{ end }}
+            <span class="text-label-bold" style="color: var(--color-tertiary); font-size: 0.8rem; letter-spacing: 0.05em; text-transform: uppercase;">{{ .theme }}</span>
+          </div>
+          <h3 class="text-headline-sm" style="font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--color-primary);">{{ .title }}</h3>
+          <p class="text-body-md" style="color: var(--color-on-surface-variant); line-height: 1.6; margin-bottom: 1.5rem;">
+            {{ .summary }}
+          </p>
+        </div>
+        <div style="padding-top: 1rem; border-top: 1px solid var(--color-outline-variant);">
+          <a href="{{ .link_url | safeURL }}" target="_blank" rel="noopener noreferrer" class="text-label-bold" style="color: var(--color-secondary); display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.9rem;">
+            <span>{{ .link_text }}</span>
+          </a>
+        </div>
+      </div>
+      {{ end }}
     </div>
   </div>
 </section>
@@ -112,6 +183,9 @@
         <a href="{{ if hasPrefix .url "tel:" }}{{ .url | safeURL }}{{ else }}{{ .url | relURL }}{{ end }}" class="btn btn-primary">{{ .text }}</a>
         {{ end }}
         {{ with .secondary_button }}
+        <a href="{{ if hasPrefix .url "http" }}{{ .url | safeURL }}{{ else }}{{ .url | relURL }}{{ end }}" {{ if hasPrefix .url "http" }}target="_blank" rel="noopener noreferrer"{{ end }} class="btn btn-outline">{{ .text }}</a>
+        {{ end }}
+        {{ with .tertiary_button }}
         <a href="{{ if hasPrefix .url "http" }}{{ .url | safeURL }}{{ else }}{{ .url | relURL }}{{ end }}" {{ if hasPrefix .url "http" }}target="_blank" rel="noopener noreferrer"{{ end }} class="btn btn-outline">{{ .text }}</a>
         {{ end }}
       </div>

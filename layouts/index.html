@@ -166,7 +166,14 @@
     </div>
     {{ end }}
     {{ with .author }}
-    <div class="text-label-bold" style="color: var(--color-primary-fixed-dim);">{{ . }}</div>
+      {{ if $.Params.testimonial.url }}
+      <a href="{{ $.Params.testimonial.url | safeURL }}" target="_blank" rel="noopener noreferrer" class="text-label-bold" style="color: var(--color-primary-fixed-dim); display: inline-flex; align-items: center; gap: 0.35rem; transition: color var(--transition-fast);">
+        <span>{{ . }}</span>
+        <span class="material-symbols-outlined" style="font-size: 1rem;">open_in_new</span>
+      </a>
+      {{ else }}
+      <div class="text-label-bold" style="color: var(--color-primary-fixed-dim);">{{ . }}</div>
+      {{ end }}
     {{ end }}
   </div>
 </section>

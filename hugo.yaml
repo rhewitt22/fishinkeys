@@ -7,6 +7,7 @@ params:
   description: "Fish Key West with Capt. Dan Zier. Private shark fishing, Goliath grouper, tarpon and family fishing charters aboard a 22' Lake & Bay."
   phone: "(305) 393-0566"
   booking_phone: "tel:3053930566"
+  tripadvisor_url: "https://www.tripadvisor.com/Attraction_Review-g34345-d2091135-Reviews-Key_West_Fishing_Connection-Key_West_Florida_Keys_Florida.html"
   fishingbooker_url: "https://fishingbooker.com/charters/view/31066"
   email: "info@fishinkeys.com"
   location_name: "Ocean's Edge Marina"

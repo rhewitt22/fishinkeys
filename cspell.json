@@ -3,6 +3,7 @@
   "version": "0.2",
   "language": "en",
   "words": [
+    "backcountry",
     "bento",
     "blacktip",
     "blacktips",
@@ -10,10 +11,13 @@
     "fishingbooker",
     "gamefish",
     "jsonify",
+    "markdownify",
     "plainify",
     "sportfishing",
     "subheadline",
     "Tortugas",
+    "tripadvisor",
+    "TripAdvisor",
     "Zier"
   ],
   "ignorePaths": [

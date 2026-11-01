@@ -44,9 +44,10 @@ trips_section:
 
 # --- TESTIMONIAL BANNER ---
 testimonial:
-  quote: "Capt. Dan knows where to find fish. We caught a massive bull shark and multiple lemon sharks. Unbelievable action and an unforgettable day on the water!"
+  quote: "Whenever we visit Key West we go fishing with Capt. Dan. He works his tail off to get us on big fish every time we go out. We've fished with him multiple times now—an unforgettable experience every single trip!"
   stars: "★★★★★"
-  author: "VERIFIED GUEST REVIEW • FISHINGBOOKER"
+  author: "VERIFIED GUEST REVIEW • TRIPADVISOR"
+  url: "https://www.tripadvisor.com/Attraction_Review-g34345-d2091135-Reviews-Key_West_Fishing_Connection-Key_West_Florida_Keys_Florida.html"
 
 # --- FINAL CTA BANNER ---
 cta_section:
