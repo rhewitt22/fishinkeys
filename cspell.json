@@ -1,0 +1,28 @@
+{
+  "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "bento",
+    "blacktip",
+    "blacktips",
+    "Crevalle",
+    "fishingbooker",
+    "gamefish",
+    "jsonify",
+    "plainify",
+    "sportfishing",
+    "subheadline",
+    "Tortugas",
+    "Zier"
+  ],
+  "ignorePaths": [
+    ".git/**",
+    ".github/**",
+    "node_modules/**",
+    "public/**",
+    "resources/**",
+    "static/**",
+    "package-lock.json"
+  ]
+}

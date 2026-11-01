@@ -1,0 +1,15 @@
+{
+  "name": "fishinkeys",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fishin Keys static site",
+  "scripts": {
+    "spellcheck": "cspell \"content/**/*.md\" \"layouts/**/*.html\"",
+    "spellcheck:watch": "cspell \"content/**/*.md\" \"layouts/**/*.html\" --watch",
+    "build": "npm run spellcheck && hugo --minify",
+    "dev": "hugo server -D"
+  },
+  "devDependencies": {
+    "cspell": "^8.16.0"
+  }
+}
