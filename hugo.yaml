@@ -62,3 +62,7 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+    extensions:
+      typographer:
+        disable: true
+
