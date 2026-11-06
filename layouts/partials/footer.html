@@ -8,10 +8,17 @@
           }}{{ . }}{{ else }}Captain-led expertise in Key West. Professional fishing adventures for anglers of all skill
           levels.{{ end }}
         </p>
-        <div style="display: flex; gap: 1rem;">
-          <span class="material-symbols-outlined">sailing</span>
-          <span class="material-symbols-outlined">anchor</span>
-          <span class="material-symbols-outlined">photo_camera</span>
+        <div class="footer-social-links">
+          {{ with .Site.Params.tripadvisor_url }}
+          <a href="{{ . | safeURL }}" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="TripAdvisor" title="TripAdvisor">
+            {{ partial "icons/tripadvisor.html" (dict "size" "24px") }}
+          </a>
+          {{ end }}
+          {{ with .Site.Params.fishingbooker_url }}
+          <a href="{{ . | safeURL }}" target="_blank" rel="noopener noreferrer" class="footer-social-link" aria-label="FishingBooker" title="FishingBooker">
+            {{ partial "icons/fishingbooker.html" (dict "size" "24px") }}
+          </a>
+          {{ end }}
         </div>
       </div>
 

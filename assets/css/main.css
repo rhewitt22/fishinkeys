@@ -682,6 +682,27 @@ footer.site-footer {
   color: var(--color-secondary-fixed);
 }
 
+.footer-social-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.footer-social-link {
+  color: var(--color-primary-fixed-dim);
+  opacity: 0.85;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-fast), opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.footer-social-link:hover {
+  color: var(--color-secondary-fixed);
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
 .footer-bottom {
   border-top: 1px solid var(--color-primary-container);
   padding: 1.5rem 0;
