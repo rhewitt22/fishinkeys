@@ -23,7 +23,7 @@ metrics:
   - value: "Top 3%"
     label: "Key West Boat Tours & Charters"
   - value: "5.0"
-    label: "TripAdvisor Bubble Rating"
+    label: "TripAdvisor Rating"
   - value: "930+"
     label: "Verified Guest Reviews"
   - value: "99%"
