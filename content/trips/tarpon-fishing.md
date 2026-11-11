@@ -1,7 +1,7 @@
 ---
 title: "Tarpon Fishing"
-price: ""
-duration: "SEASONAL"
+price: "$800"
+duration: "4 HOURS"
 guests: "UP TO 4 ANGLERS"
 badge: "SEASONAL (SPRING - SUMMER)"
 image: "images/tarpon-fishing.jpg"

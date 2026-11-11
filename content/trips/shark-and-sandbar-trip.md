@@ -1,6 +1,6 @@
 ---
 title: "Shark & Sandbar Trip"
-price: ""
+price: "$800"
 duration: "4 HOURS"
 guests: "UP TO 4 ANGLERS"
 badge: ""

@@ -1,6 +1,6 @@
 ---
 title: "Goliath Grouper & Shark Trip"
-price: ""
+price: "$1000"
 duration: "6 HOURS"
 guests: "UP TO 4 ANGLERS"
 badge: "PREDATOR COMBO"

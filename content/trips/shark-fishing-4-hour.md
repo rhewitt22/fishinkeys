@@ -1,6 +1,6 @@
 ---
 title: "4-Hour Shark Fishing"
-price: ""
+price: "$800"
 duration: "4 HOURS"
 guests: "UP TO 4 ANGLERS"
 badge: ""

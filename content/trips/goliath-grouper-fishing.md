@@ -1,6 +1,6 @@
 ---
 title: "Goliath Grouper Fishing"
-price: ""
+price: "$800"
 duration: "4-HOUR & EXTENDED OPTIONS"
 guests: "UP TO 4 ANGLERS"
 badge: "TROPHY FISHING"
