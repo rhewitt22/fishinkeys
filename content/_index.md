@@ -5,7 +5,7 @@ type: "home"
 
 # --- HERO SECTION ---
 hero:
-  badge: "EST. 2024 • KEY WEST, FL"
+  badge: "EST. 2002 • KEY WEST, FL"
   title: "Experience the Best of Key West Fishing"
   subtitle: "Join Captain-led excursions for world-class offshore adventures and reef explorations in the pristine Florida Keys."
   background_image: "images/hero-boat.jpg"
