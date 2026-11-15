@@ -1,6 +1,31 @@
+{{ define "head" }}
+{{ with .Params.hero_poster }}
+<link rel="preload" as="image" href="{{ . | relURL }}" fetchpriority="high" type="image/jpeg">
+{{ end }}
+{{ end }}
+
 {{ define "main" }}
 <!-- Page Header Banner -->
-<section style="background-color: var(--color-primary); color: #ffffff; padding: 120px 0 60px; margin-top: 80px;">
+<section class="page-hero-banner"{{ with .Params.hero_poster }} style="background-image: url('{{ . | relURL }}');"{{ end }}>
+  {{ if or .Params.hero_video_webm .Params.hero_video_mp4 }}
+  <video
+    class="hero-video"
+    width="1280"
+    height="720"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    {{ with .Params.hero_poster }}poster="{{ . | relURL }}"{{ end }}
+    aria-hidden="true"
+    tabindex="-1"
+  >
+    {{ with .Params.hero_video_webm }}<source src="{{ . | relURL }}" type="video/webm">{{ end }}
+    {{ with .Params.hero_video_mp4 }}<source src="{{ . | relURL }}" type="video/mp4">{{ end }}
+  </video>
+  <div class="hero-overlay"></div>
+  {{ end }}
   <div class="container" style="text-align: center;">
     {{ with .Params.hero_badge }}<span class="hero-badge" style="background-color: var(--color-secondary-container); color: var(--color-primary);">{{ . }}</span>{{ end }}
     <h1 class="text-display-lg" style="color: #ffffff; margin-top: 1rem;">{{ default .Title .Params.headline }}</h1>

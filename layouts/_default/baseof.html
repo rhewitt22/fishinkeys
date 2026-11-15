@@ -19,6 +19,7 @@
   {{ else }}
     <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
   {{ end }}
+  {{ block "head" . }}{{ end }}
 </head>
 <body>
   {{ partial "header.html" . }}
