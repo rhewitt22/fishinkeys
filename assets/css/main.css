@@ -278,6 +278,10 @@ header.site-header.scrolled {
   gap: 1rem;
 }
 
+.cta-short {
+  display: none;
+}
+
 /* Buttons */
 .btn {
   display: inline-flex;
@@ -746,15 +750,41 @@ footer.site-footer {
 
 @media (max-width: 860px) {
   header.site-header {
-    height: 70px;
+    height: auto;
+    min-height: 70px;
+    padding-block: 0.5rem;
+  }
+
+  header.site-header.scrolled {
+    height: auto;
+    min-height: 64px;
+  }
+
+  .header-inner {
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .brand-logo {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: clamp(1rem, 3.5vw, 1.35rem);
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  .header-actions {
+    gap: 0.5rem;
+    flex-shrink: 0;
   }
 
   .nav-container {
-    position: fixed;
-    top: 70px;
+    position: absolute;
+    top: 100%;
     left: 0;
     width: 100%;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 100%);
+    height: calc(100dvh - 100%);
     background-color: #ffffff;
     padding: 1.5rem;
     overflow-y: auto;
@@ -821,11 +851,31 @@ footer.site-footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
   }
 
   .btn-header-cta {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.875rem;
     font-size: 0.8rem;
+    min-height: 44px;
+    white-space: nowrap;
+  }
+
+  .btn-header-cta .cta-full {
+    display: none;
+  }
+
+  .btn-header-cta .cta-short {
+    display: inline;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-header-cta {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
   }
 }
 

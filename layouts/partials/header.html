@@ -14,7 +14,7 @@
             <a href="{{ .URL | relURL }}" class="nav-link dropdown-toggle {{ if or ($currentPage.IsMenuCurrent " main"
               .) ($currentPage.HasMenuCurrent "main" .) }}active{{ end }}">
               <span>{{ .Name }}</span>
-              <span class="material-symbols-outlined dropdown-caret">expand_more</span>
+              <span class="material-symbols-outlined dropdown-caret" aria-hidden="true">expand_more</span>
             </a>
             <ul class="dropdown-menu">
               {{ range .Children }}
@@ -39,12 +39,14 @@
       </nav>
 
       <div class="header-actions">
-        <a href="{{ default " tel:3053930566" .Site.Params.booking_phone | safeURL }}"
-          class="btn btn-primary btn-header-cta">
-          Call: (305) 393-0566
+        <a href="{{ default "tel:3053930566" .Site.Params.booking_phone | safeURL }}"
+          class="btn btn-primary btn-header-cta"
+          aria-label="Call {{ default "(305) 393-0566" .Site.Params.phone }}">
+          <span class="cta-full">Call: (305) 393-0566</span>
+          <span class="cta-short" aria-hidden="true">Call Now</span>
         </a>
         <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-          <span class="material-symbols-outlined" id="mobile-toggle-icon">menu</span>
+          <span class="material-symbols-outlined" id="mobile-toggle-icon" aria-hidden="true">menu</span>
         </button>
       </div>
     </div>
